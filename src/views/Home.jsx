@@ -1,9 +1,9 @@
 import React from "react";
-import bannerImg1 from "../assets/banner-group/banner_group_1.webp";
-import flashsale from "../assets/flatsale/img1.webp";
-import collection1 from "../assets/collection/coll_1.webp";
-import collectionbg from "../assets/collection/coll_bg.webp";
-import Slider from "./components/Slider";
+import bannerImg1 from "@/assets/banner-group/banner_group_1.webp";
+import flashsale from "@/assets/flatsale/img1.webp";
+import collection1 from "@/assets/collection/coll_1.webp";
+import collectionbg from "@/assets/collection/coll_bg.webp";
+import Slider from "@/views/components/Slider";
 import "./css/Home.css";
 
 function Home() {
