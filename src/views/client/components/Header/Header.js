@@ -170,7 +170,7 @@ const Header = ({
                         >
                           <img
                             className="me-xl-2"
-                            src={`/img/flags/${language}.png`}
+                            src={`${baseUrl}/img/flags/${language}.png`}
                             alt={language.toUpperCase()}
                             style={{
                               width: "28px",
