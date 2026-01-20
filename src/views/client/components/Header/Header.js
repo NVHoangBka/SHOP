@@ -7,6 +7,8 @@ import Menu from "./Menu/Menu";
 import Search from "./Search/Search";
 import Cart from "./CartHeader/CartHeader";
 
+const baseUrl = process.env.PUBLIC_URL || "";
+
 const Header = ({
   cartController,
   isAuthenticated,
@@ -125,7 +127,7 @@ const Header = ({
               style={{ background: "transparent", cursor: "pointer" }}
             >
               <img
-                src={`%PUBLIC_URL%/img/logo/LOGO.png`}
+                src={`${baseUrl}/img/logo/LOGO.png`}
                 alt="logo"
                 class="img-fluid col-8"
               />
@@ -144,8 +146,8 @@ const Header = ({
                     >
                       <img
                         src={
-                          `%PUBLIC_URL%/img/flags/${currentLang}.png` ||
-                          `%PUBLIC_URL%/img/flags/${currentLang}.jpg`
+                          `${baseUrl}/img/flags/${currentLang}.png` ||
+                          `${baseUrl}/img/flags/${currentLang}.jpg`
                         }
                         alt={currentLang.toUpperCase()}
                         className="me-xl-1 rounded col-xl-12"
