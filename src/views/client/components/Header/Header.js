@@ -125,7 +125,7 @@ const Header = ({
               style={{ background: "transparent", cursor: "pointer" }}
             >
               <img
-                src={`/img/logo/LOGO.png`}
+                src={`%PUBLIC_URL%/img/logo/LOGO.png`}
                 alt="logo"
                 class="img-fluid col-8"
               />
@@ -144,8 +144,8 @@ const Header = ({
                     >
                       <img
                         src={
-                          `/img/flags/${currentLang}.png` ||
-                          `/img/flags/${currentLang}.jpg`
+                          `%PUBLIC_URL%/img/flags/${currentLang}.png` ||
+                          `%PUBLIC_URL%/img/flags/${currentLang}.jpg`
                         }
                         alt={currentLang.toUpperCase()}
                         className="me-xl-1 rounded col-xl-12"
