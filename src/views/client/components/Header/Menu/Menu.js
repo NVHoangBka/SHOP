@@ -2,13 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { t } from "i18next";
 
-const Menu = ({
-  menuRef,
-  onClose,
-  titleController,
-  categoryController,
-  getTranslated,
-}) => {
+const Menu = ({ menuRef, onClose, categoryController, getTranslated }) => {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -70,7 +64,7 @@ const Menu = ({
                         <li key={index} className="menu-hover">
                           <Link
                             to={`/products/${getTranslated(
-                              category.slug
+                              category.slug,
                             )}/${getTranslated(subCategory.slug)}`}
                             onClick={handleItemClick}
                           >

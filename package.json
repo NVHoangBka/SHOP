@@ -1,27 +1,39 @@
 {
-  "name": "frontend-shop",
+  "name": "introl-shop",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/dom": "^10.4.0",
-    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.8.0",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^13.5.0",
-    "bootstrap": "^5.3.6",
+    "axios": "^1.12.2",
+    "bootstrap": "^5.3.7",
     "bootstrap-icons": "^1.13.1",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "react-router-dom": "^7.6.1",
+    "countries-cities": "^0.0.11",
+    "framer-motion": "^12.23.24",
+    "i18n-iso-countries": "^7.14.0",
+    "i18next": "^25.7.3",
+    "i18next-browser-languagedetector": "^8.2.0",
+    "i18next-http-backend": "^3.0.2",
+    "lodash": "^4.17.21",
+    "react": "^19.1.1",
+    "react-bootstrap": "^2.10.10",
+    "react-dom": "^19.1.1",
+    "react-i18next": "^16.5.0",
+    "react-router-dom": "^7.9.4",
     "react-scripts": "5.0.1",
+    "vietnam-provinces": "^0.0.4",
+    "vn-provinces": "^1.0.4",
     "web-vitals": "^2.1.4"
   },
-  "homepage": "https://nvhoangbka.github.io/SHOP",
   "scripts": {
-    "start": "react-app-rewired start",
-    "build": "react-app-rewired build",
-    "test": "react-app-rewired test",
-    "deploy": "gh-pages -d build",
-    "eject": "react-scripts eject"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "start:backend": "cd ../backend && node server.js",
+    "start:all": "concurrently \"npm run start\" \"npm run start:backend\""
   },
   "eslintConfig": {
     "extends": [
@@ -42,9 +54,6 @@
     ]
   },
   "devDependencies": {
-    "customize-cra": "^1.0.0",
-    "gh-pages": "^6.3.0",
-    "react-app-rewired": "^2.2.1",
     "autoprefixer": "^10.4.21",
     "concurrently": "^9.2.1",
     "postcss": "^8.5.6",

@@ -4,8 +4,10 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 
 const ProductDetail = ({ addToCart, productController }) => {
   const { slug } = useParams();
+  const currentLanguage = localStorage.getItem("i18n_lang");
+
   const navigate = useNavigate();
-  const [t, i18n] = useTranslation();
+  const [t] = useTranslation();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [quantity, setQuantity] = useState(1);
@@ -18,6 +20,7 @@ const ProductDetail = ({ addToCart, productController }) => {
       setLoading(true);
       try {
         const data = await productController.getProductBySlug(slug);
+        console.log(data);
         if (!data) {
           console.error("Không có sản phẩm");
           // navigate("/");
@@ -101,6 +104,10 @@ const ProductDetail = ({ addToCart, productController }) => {
     setShowMore(!showMore);
   };
 
+  const getTranslated = (obj, fallback = "") => {
+    return obj?.[currentLanguage] || obj?.vi || obj?.en || obj?.cz || fallback;
+  };
+
   if (loading) {
     return (
       <div className="container py-xl-5 text-center">
@@ -127,6 +134,7 @@ const ProductDetail = ({ addToCart, productController }) => {
     selectedVariant?.price ||
     product.discountPrice ||
     product.price;
+
   const originalPrice = selectedVariant?.price || product.price;
   const hasDiscount = currentPrice < originalPrice;
   const discountPercent = hasDiscount
@@ -155,7 +163,7 @@ const ProductDetail = ({ addToCart, productController }) => {
               </li>
               <li>
                 <span className="fs-7" style={{ color: "#BFBFBF" }}>
-                  {product.name}
+                  {getTranslated(product.name)}
                 </span>
               </li>
             </ul>
@@ -174,7 +182,7 @@ const ProductDetail = ({ addToCart, productController }) => {
                     <div className="text-center">
                       <img
                         src={mainImage || "/placeholder.jpg"}
-                        alt={product.name}
+                        alt={getTranslated(product.name)}
                         className="object-contain rounded-lg gallery-main-img w-100"
                       />
                     </div>
@@ -252,7 +260,9 @@ const ProductDetail = ({ addToCart, productController }) => {
               <div className="bg-background">
                 <div className="">
                   <div className="product-title mb-xl-4">
-                    <h1 className="fw-semibold fs-4">{product.name}</h1>
+                    <h1 className="fw-semibold fs-4">
+                      {getTranslated(product.name)}
+                    </h1>
                     <div className="d-flex flex-wrap align-items-center  my-xl-2 ">
                       <button
                         aria-label="So sánh"
@@ -401,7 +411,7 @@ const ProductDetail = ({ addToCart, productController }) => {
                                   <small className="ms-1">
                                     (−
                                     {Math.round(
-                                      100 - (v.discountPrice / v.price) * 100
+                                      100 - (v.discountPrice / v.price) * 100,
                                     )}
                                     %)
                                   </small>

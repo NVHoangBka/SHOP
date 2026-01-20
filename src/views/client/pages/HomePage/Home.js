@@ -8,7 +8,6 @@ import { useTranslation } from "react-i18next";
 const Home = ({
   addToCart,
   productController,
-  titleController,
   bannerController,
   categoryController,
 }) => {
@@ -17,7 +16,6 @@ const Home = ({
 
   const [flashSaleProducts, setFlashSaleProducts] = useState([]);
   const [bannerHome, setBannerHome] = useState([]);
-  const [titlesHome, setTitlesHome] = useState([]);
   const [categoriesHome, setCategoriesHome] = useState([]);
 
   useEffect(() => {
@@ -25,13 +23,12 @@ const Home = ({
       try {
         const orders = await productController.getAllProducts();
         const banners = await bannerController.getBannersAll();
-        const titles = await titleController.getTitlesByType("h1");
         const resCategories = await categoryController.getCategories();
 
         if (resCategories.success) {
           const categories = resCategories.categories;
           const featuredCategories = categories.filter(
-            (category) => category.isFeatured === true
+            (category) => category.isFeatured === true,
           );
           setCategoriesHome(featuredCategories);
         }
@@ -40,18 +37,12 @@ const Home = ({
 
         setFlashSaleProducts(flashSale);
         setBannerHome(banners);
-        setTitlesHome(titles);
       } catch (error) {
         console.error("Lỗi khi lấy dữ liệu:", error);
       }
     };
     fetchData();
-  }, [
-    bannerController,
-    productController,
-    titleController,
-    categoryController,
-  ]);
+  }, [bannerController, productController, categoryController]);
 
   const getTranslated = (obj, fallback = "") => {
     return obj?.[currentLanguage] || obj?.vi || obj?.en || obj?.cz || fallback;
@@ -106,7 +97,7 @@ const Home = ({
           />
           <div className="container">
             <div className="collection-list row py-xl-5 position-relative fs-6">
-              {titlesHome.map((title, index) => (
+              {/* {titlesHome.map((title, index) => (
                 <Link
                   key={index}
                   to="#"
@@ -119,7 +110,7 @@ const Home = ({
                   />
                   <p className="m-0">{title.name}</p>
                 </Link>
-              ))}
+              ))} */}
             </div>
           </div>
         </div>
@@ -132,9 +123,9 @@ const Home = ({
               path={getTranslated(category.slug)}
               title={getTranslated(category.name)}
               value={getTranslated(category.value)}
+              parentId={category._id}
               addToCart={addToCart}
               productController={productController}
-              titleController={titleController}
               categoryController={categoryController}
             />
           ))}

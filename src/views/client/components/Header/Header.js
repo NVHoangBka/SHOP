@@ -29,7 +29,7 @@ const Header = ({
 
   const totalQuantity = cartItems.reduce(
     (sum, item) => sum + (item.quantity || 0),
-    0
+    0,
   );
 
   const getTranslated = (obj, fallback = "") => {
@@ -77,7 +77,7 @@ const Header = ({
     (updatedCart) => {
       onCartChange(updatedCart);
     },
-    [onCartChange]
+    [onCartChange],
   );
 
   const changeLanguage = (lng) => {
@@ -89,7 +89,7 @@ const Header = ({
   const currentLang = i18n.language || "vi";
 
   const languages = (i18n.options.supportedLngs || ["vi", "en", "cz"]).filter(
-    (lng) => lng !== "cimode"
+    (lng) => lng !== "cimode",
   );
 
   const languageNames = {

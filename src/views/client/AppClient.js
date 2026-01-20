@@ -4,7 +4,6 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import ToastMessage from "./components/ToastMessage/ToastMessage";
 
-import titleController from "../../controllers/TitleController";
 import AuthController from "../../controllers/AuthController";
 import ProductController from "../../controllers/ProductController";
 import CartController from "../../controllers/CartController";
@@ -121,7 +120,6 @@ const AppClient = () => {
         onCartChange={onCartChange}
         authController={authController}
         productController={productController}
-        titleController={titleController}
         categoryController={categoryController}
       />
       <div>
@@ -136,7 +134,6 @@ const AppClient = () => {
           authController={authController}
           productController={productController}
           cartController={cartController}
-          titleController={titleController}
           bannerController={bannerController}
           orderController={orderController}
           categoryController={categoryController}

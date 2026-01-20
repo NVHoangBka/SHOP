@@ -6,7 +6,7 @@ export const banners = [
       "https://bizweb.dktcdn.net/100/518/448/themes/953339/assets/banner_group_1.jpg?1733201190476",
     path: "/products/sua",
     type: "flashsale",
-    hide: false,
+    showHome: true,
   },
   {
     id: 2,
@@ -15,7 +15,7 @@ export const banners = [
       "https://bizweb.dktcdn.net/100/518/448/themes/953339/assets/banner_group_2.jpg?1733201190476",
     path: "/products/all",
     type: "flashsale",
-    hide: false,
+    showHome: true,
   },
   {
     id: 3,
@@ -24,6 +24,6 @@ export const banners = [
       "https://bizweb.dktcdn.net/100/518/448/themes/953339/assets/banner_group_3.jpg?1733201190476",
     path: "/products/do-dung-me-be",
     type: "flashsale",
-    hide: false,
+    showHome: true,
   },
 ];

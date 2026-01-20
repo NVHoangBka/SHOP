@@ -7,6 +7,7 @@ const ProductTabSection = ({
   path,
   value,
   title,
+  parentId,
   addToCart,
   productController,
   categoryController,
@@ -14,36 +15,22 @@ const ProductTabSection = ({
   const [t] = useTranslation();
   const currentLanguage = localStorage.getItem("i18n_lang") || "en";
   const [filteredProducts, setFilteredProducts] = useState([]);
+  const [categories, setCategories] = useState([]);
   const [subCategories, setSubCategories] = useState([]);
   const [activeTab, setActiveTab] = useState();
-  const [categoryId, setCategoryId] = useState(null);
 
   const getTranslated = (obj, fallback = "") => {
     return obj?.[currentLanguage] || obj?.vi || obj?.en || obj?.cz || fallback;
   };
 
-  useEffect(() => {
-    const fetchCategoryId = async (value) => {
-      try {
-        const result = await categoryController.getCategoriesByValue(value);
-        if (result.success) {
-          const categories = result.category;
-          setCategoryId(categories?._id);
-        }
-      } catch (error) {}
-    };
-    fetchCategoryId(value);
-  }, [value]);
-
   // Lấy subTitles tương ứng với value của section này
   useEffect(() => {
     const fetchSubCategories = async () => {
-      if (!categoryId) return;
+      if (!parentId) return;
 
       try {
-        const result = await categoryController.getSubCategoriesByCategory(
-          categoryId
-        );
+        const result =
+          await categoryController.getSubCategoriesByCategory(parentId);
         if (result.success) {
           const subs = result.subCategories;
           setSubCategories(subs);
@@ -63,24 +50,23 @@ const ProductTabSection = ({
     };
 
     fetchSubCategories();
-  }, [categoryId]);
+  }, [parentId]);
 
-  // Logic lấy sản phẩm ()
+  // Logic lấy sản phẩm
   useEffect(() => {
     const fetchProducts = async () => {
-      if (!categoryId) return;
+      if (!parentId) return;
 
       try {
         let products = [];
 
         if (activeTab) {
           // Lọc theo subCategory cụ thể
-          products = await productController.getProductsBySubCategory(
-            activeTab
-          );
+          products =
+            await productController.getProductsBySubCategory(activeTab);
         } else {
           // Lọc theo category cha (nếu không có sub hoặc tab "Tất cả")
-          products = await productController.getProductsByCategory(categoryId);
+          products = await productController.getProductsByCategory(parentId);
         }
 
         setFilteredProducts(products);
@@ -91,9 +77,7 @@ const ProductTabSection = ({
     };
 
     fetchProducts();
-  }, [activeTab, categoryId]);
-
-  console.log(filteredProducts);
+  }, [activeTab, parentId]);
 
   return (
     <div className="section-product-tabs mt-xl-5">
