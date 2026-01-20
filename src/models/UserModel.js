@@ -1,7 +1,19 @@
-export default class User {
-  constructor(id, name, email) {
-    this.id = id;
-    this.name = name;
-    this.email = email;
+class UserModel {
+  constructor() {
+    this.currentUser = null;
+  }
+
+  setCurrentUser(user) {
+    this.currentUser = user;
+  }
+
+  getCurrentUser() {
+    return this.currentUser;
+  }
+
+  clearCurrentUser() {
+    this.currentUser = null;
   }
 }
+
+export default UserModel;

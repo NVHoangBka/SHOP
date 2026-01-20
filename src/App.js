@@ -1,17 +1,11 @@
-// src/App.js
 import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
-import AppRouter from "@/routes/AppRouter";
-import Navbar from "@/views/components/Navbar";
-import Footer from "@/views/components/Footer";
+import AppRouter from "./routers/AppRouter";
 
 function App() {
   return (
-    <Router>
-      <Navbar />
+    <React.Fragment>
       <AppRouter />
-      <Footer />
-    </Router>
+    </React.Fragment>
   );
 }
 

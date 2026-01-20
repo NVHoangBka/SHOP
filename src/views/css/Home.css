@@ -1,12 +1,3 @@
-.hover:hover {
-  color: orange !important;
-  opacity: 0.8;
-  cursor: pointer;
-}
-.active {
-  color: white !important;
-  background-color: red !important;
-}
 
 .carousel:hover .carousel-control-prev-icon,
 .carousel:hover .carousel-control-next-icon {
@@ -29,10 +20,6 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-.fs-body {
-  font-size: 14px;
 }
 
 .heading-bar::before {
