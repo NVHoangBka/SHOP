@@ -4,13 +4,20 @@ import { t } from "i18next";
 
 const Menu = ({ menuRef, onClose, categoryController, getTranslated }) => {
   const [categories, setCategories] = useState([]);
+  const [categoriesMenu, setCategoriesMenu] = useState([]);
+
   const [loading, setLoading] = useState(true);
 
   const fetchCategories = async () => {
-    const result = await categoryController.getCategories();
+    const result = await categoryController.getCategoriesAll();
     if (result.success) {
       const categories = result.categories;
+
+      const categoriesMenu = result.categories.filter(
+        (cat) => cat.parent === null && cat.isActive,
+      );
       setCategories(categories);
+      setCategoriesMenu(categoriesMenu);
     }
     setLoading(false);
     return result;
@@ -19,6 +26,12 @@ const Menu = ({ menuRef, onClose, categoryController, getTranslated }) => {
   useEffect(() => {
     fetchCategories();
   }, [categoryController]);
+
+  const getSubCategories = (categoryId) => {
+    return categories.filter(
+      (cat) => cat.parent === categoryId && cat.isActive,
+    );
+  };
 
   const handleItemClick = () => {
     onClose(false);
@@ -40,42 +53,45 @@ const Menu = ({ menuRef, onClose, categoryController, getTranslated }) => {
                 <span className="fw-medium">{t("menu.allProducts")}</span>
               </Link>
             </li>
-            {categories.length > 0 ? (
-              categories.map((category, index) => (
-                <li key={index} className="dropdown-submenu">
-                  <Link
-                    to={`/products/${getTranslated(category.slug)}`}
-                    className="d-flex justify-content-between menu-hover"
-                    aria-haspopup="true"
-                    aria-expanded={
-                      category.children?.length > 0 ? "false" : undefined
-                    }
-                  >
-                    <span className="fw-medium">
-                      {getTranslated(category.name)}
-                    </span>
-                    {category.children?.length > 0 && (
-                      <i className="bi bi-caret-right-fill d-flex align-items-center"></i>
+            {categoriesMenu.length > 0 ? (
+              categoriesMenu.map((category) => {
+                const subCategories = getSubCategories(category._id);
+                return (
+                  <li key={category._id} className="dropdown-submenu">
+                    <Link
+                      to={`/products/${getTranslated(category.slug)}`}
+                      className="d-flex justify-content-between menu-hover"
+                      aria-haspopup="true"
+                      aria-expanded={
+                        subCategories?.length > 0 ? "false" : undefined
+                      }
+                    >
+                      <span className="fw-medium">
+                        {getTranslated(category.name)}
+                      </span>
+                      {subCategories?.length > 0 && (
+                        <i className="bi bi-caret-right-fill d-flex align-items-center"></i>
+                      )}
+                    </Link>
+                    {subCategories?.length > 0 && (
+                      <ul className="menu-list">
+                        {subCategories.map((subCategory) => (
+                          <li key={subCategory._id} className="menu-hover">
+                            <Link
+                              to={`/products/${getTranslated(
+                                category.slug,
+                              )}/${getTranslated(subCategory.slug)}`}
+                              onClick={handleItemClick}
+                            >
+                              {getTranslated(subCategory.name)}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
                     )}
-                  </Link>
-                  {category.children?.length > 0 && (
-                    <ul className="menu-list">
-                      {category.children.map((subCategory, index) => (
-                        <li key={index} className="menu-hover">
-                          <Link
-                            to={`/products/${getTranslated(
-                              category.slug,
-                            )}/${getTranslated(subCategory.slug)}`}
-                            onClick={handleItemClick}
-                          >
-                            {getTranslated(subCategory.name)}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </li>
-              ))
+                  </li>
+                );
+              })
             ) : (
               <li>{t("menu.noCategory")}</li>
             )}

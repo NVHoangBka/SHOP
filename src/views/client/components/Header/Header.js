@@ -22,7 +22,7 @@ const Header = ({
   const navigate = useNavigate();
   const { t, i18n } = useTranslation();
   const [currentUser, setCurrentUser] = useState(null);
-  const currentLanguage = localStorage.getItem("i18n_lang") || "en";
+  const currentLanguage = localStorage.getItem("i18n_lang") || i18n.language;
 
   // State cho 3 popup
   const [showCart, setShowCart] = useState(false);
@@ -88,8 +88,6 @@ const Header = ({
     localStorage.setItem("i18n_lang", lng);
   };
 
-  const currentLang = i18n.language || "vi";
-
   const languages = (i18n.options.supportedLngs || ["vi", "en", "cz"]).filter(
     (lng) => lng !== "cimode",
   );
@@ -146,10 +144,10 @@ const Header = ({
                     >
                       <img
                         src={
-                          `${baseUrl}/img/flags/${currentLang}.png` ||
-                          `${baseUrl}/img/flags/${currentLang}.jpg`
+                          `${baseUrl}/img/flags/${currentLanguage}.png` ||
+                          `${baseUrl}/img/flags/${currentLanguage}.jpg`
                         }
-                        alt={currentLang.toUpperCase()}
+                        alt={currentLanguage.toUpperCase()}
                         className="me-xl-1 rounded col-xl-12"
                       />
                     </Dropdown.Toggle>
@@ -160,7 +158,7 @@ const Header = ({
                         <Dropdown.Item
                           key={index}
                           className={
-                            currentLang === language
+                            currentLanguage === language
                               ? "py-xl-2 bg-secondary-subtle"
                               : "py-xl-2"
                           }
@@ -179,7 +177,7 @@ const Header = ({
                           />
                           <span
                             className={
-                              currentLang === language ? "fw-bold" : ""
+                              currentLanguage === language ? "fw-bold" : ""
                             }
                           >
                             {languageNames[language]}

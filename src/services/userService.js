@@ -1,13 +1,9 @@
-import api from "./api.js";
+import db from "../data/users";
+import { User } from "../models/UserModel";
 
 class UserService {
-  async getAllUsers(userData) {
+  async login(email, password) {
     try {
-      const response = await api.get("/users/all", {
-        params: userData,
-      });
-      const result = response.data;
-      return result;
     } catch (error) {
       return {
         success: false,
