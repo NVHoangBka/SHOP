@@ -223,7 +223,7 @@ module.exports = {
       ],
       variants: [
         {
-          value: "2.2l",
+          value: "2.2L",
           price: 182000,
           discountPrice: 167000,
           stock: 200,

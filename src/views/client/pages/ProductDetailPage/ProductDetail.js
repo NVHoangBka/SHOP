@@ -301,7 +301,7 @@ const ProductDetail = ({ addToCart, productController }) => {
                     {/* Giá */}
                     <div className="product-price-group rounded-sm overflow-hidden mb-xl-4">
                       <div className="price-box d-flex align-items-center flex-wrap">
-                        <div className="d-flex flex-wrap">
+                        <div className="d-flex flex-wrap align-items-center">
                           <span className="price fs-2 fw-bold text-active ms-xl-3">
                             {formatPrice(currentPrice)}
                           </span>

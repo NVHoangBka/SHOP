@@ -5,6 +5,13 @@ class CategoryController {
     this.categoryService = new CategoryService();
   }
 
+  async getCategoriesAll() {
+    try {
+      const result = await this.categoryService.getCategoriesAll();
+      return result;
+    } catch (error) {}
+  }
+
   async getCategories() {
     try {
       const result = await this.categoryService.getCategories();

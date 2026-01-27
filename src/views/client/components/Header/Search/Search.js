@@ -60,7 +60,7 @@ const Search = ({
       }
       setLoading(false);
     }, 300),
-    [productController]
+    [productController],
   );
 
   const handleInputChange = (e) => {
@@ -78,7 +78,7 @@ const Search = ({
       onClose();
       const category = categoryRef.current?.value || "all";
       navigate(
-        `/products/search?q=${encodeURIComponent(query)}&category=${category}`
+        `/products/search?q=${encodeURIComponent(query)}&category=${category}`,
       );
     }
   };
@@ -216,7 +216,7 @@ const Search = ({
                 <Link
                   key={index}
                   to={`/products/search?q=${encodeURIComponent(
-                    getTranslated(sub.slug)
+                    getTranslated(sub.slug),
                   )}&category=all`}
                   onClick={onClose}
                   className="badge bg-light text-dark border px-xl-3 py-xl-2 text-decoration-none hover-bg-success hover-text-white transition btn"
