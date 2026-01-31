@@ -125,7 +125,7 @@ const ProductTabSection = ({
           <Link
             to={`/products/${path}`}
             alt={t("product.features.showMore")}
-            className="bg-white w-100 d-flex mt-xl-4 p-xl-2 justify-content-center text-decoration-none text-success hover rounded-2"
+            className="bg-white w-100 d-flex mt-xl-4 p-xl-2 mt-lg-3 p-lg-2 justify-content-center text-decoration-none text-success hover rounded-2"
           >
             {t("common.view-all")}
             <i className="ms-1 bi bi-arrow-right"></i>
