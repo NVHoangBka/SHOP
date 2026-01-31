@@ -51,7 +51,7 @@ const Home = ({
   return (
     <>
       <Slider />
-      <div className="home bg-success-subtle py-xl-4">
+      <div className="home bg-success-subtle py-xl-4 py-lg-4">
         <div className="container">
           <div className="section-banner-group row">
             {bannerHome
@@ -66,14 +66,14 @@ const Home = ({
                 </div>
               ))}
           </div>
-          <div className="section-flashsale mt-xl-5 bg-danger rounded-4 pb-xl-3">
-            <h2 className="text-white ps-xl-3 py-xl-4 m-0">
+          <div className="section-flashsale bg-danger rounded-4 mt-xl-5 pb-xl-3 mt-lg-5 pb-lg-3">
+            <h2 className="text-white ps-xl-3 py-xl-4 m-0 py-lg-3 ps-lg-3">
               {t("home.flash-sale-title")}
             </h2>
-            <div className="product-flashsale-list row px-xl-1 m-0 justify-content-center">
+            <div className="product-flashsale-list row px-xl-1 m-0 justify-content-center px-lg-1">
               {flashSaleProducts.length > 0 ? (
                 flashSaleProducts.slice(0, 6).map((product, index) => (
-                  <div className="col-2" key={index}>
+                  <div className="col-2 col-lg-3" key={index}>
                     <ProductItem
                       key={product.id}
                       product={product}
@@ -89,14 +89,14 @@ const Home = ({
             </div>
           </div>
         </div>
-        <div className="section-collection mt-xl-5 position-relative">
+        <div className="section-collection mt-xl-5 mt-lg-4 position-relative">
           <img
             src="https://bizweb.dktcdn.net/100/518/448/themes/953339/assets/coll_bg.jpg?1733201190476"
             alt="Collection Background"
             className="w-100 position-absolute h-100"
           />
           <div className="container">
-            <div className="collection-list row py-xl-5 position-relative fs-6">
+            <div className="collection-list row py-xl-5 py-lg-4 position-relative fs-6">
               {/* {titlesHome.map((title, index) => (
                 <Link
                   key={index}

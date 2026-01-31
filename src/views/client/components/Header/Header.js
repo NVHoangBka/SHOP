@@ -100,27 +100,27 @@ const Header = ({
 
   return (
     <header
-      className="header shadow-sm bg-white sticky-top "
+      className="header shadow-sm bg-white sticky-top"
       style={{ zIndex: "1500" }}
     >
-      <div className="header-top py-xl-2">
+      <div className="header-top py-xl-2 py-lg-2 py-md-2 py-sm-2">
         <div className="container ">
-          <div className="d-flex justify-content-between align-items-center row py-xl-1">
+          <div className="d-flex justify-content-between align-items-center row py-xl-1 py-lg-1 py-md-1 py-sm-1">
             {/* Left: Menu */}
-            <div className="header-top-left d-flex align-items-center col-xl-3">
+            <div className="header-top-left d-flex align-items-center col-xl-3 col-lg-3 col-md-4 col-sm-4">
               <button
                 className="btn btn-outline-secondary border rounded-circle"
                 onClick={toggleMenu}
               >
                 <i className="bi bi-list fs-5"></i>
               </button>
-              <span className="header-top-left-text ms-xl-1 	d-none d-xl-block">
+              <span className="header-top-left-text ms-xl-1 d-none d-xl-block">
                 {t("header.product_category")}
               </span>
             </div>
             {/* Center: Logo */}
             <div
-              className="header-top-center text-center col-xl-4 "
+              className="header-top-center text-center col-xl-4 col-lg-4 col-md-4 col-sm-4"
               onClick={goHome}
               style={{ background: "transparent", cursor: "pointer" }}
             >
@@ -132,9 +132,9 @@ const Header = ({
             </div>
 
             {/* Right: Search, Account, Cart */}
-            <div className="d-flex align-items-center justify-content-end col-xl-5">
+            <div className="d-flex align-items-center justify-content-end col-xl-5 col-lg-5 col-md-4 col-sm-4">
               <div className="row justify-content-end align-items-center">
-                <div className="col-xl-2">
+                <div className="col-xl-2 col-lg-3 col-md-2 col-sm-2">
                   <Dropdown>
                     <Dropdown.Toggle
                       variant="outline-secondary"
@@ -148,26 +148,26 @@ const Header = ({
                           `${baseUrl}/img/flags/${currentLanguage}.jpg`
                         }
                         alt={currentLanguage.toUpperCase()}
-                        className="me-xl-1 rounded col-xl-12"
+                        className="me-xl-1 rounded col-12"
                       />
                     </Dropdown.Toggle>
 
                     {/* Menu dropdown - dùng class "show" để hiển thị */}
-                    <Dropdown.Menu className="mt-xl-1 dropdown-menu-end">
+                    <Dropdown.Menu className="mt-1 dropdown-menu-end">
                       {languages.map((language, index) => (
                         <Dropdown.Item
                           key={index}
                           className={
                             currentLanguage === language
-                              ? "py-xl-2 bg-secondary-subtle"
-                              : "py-xl-2"
+                              ? "py-2 bg-secondary-subtle"
+                              : "py-2"
                           }
                           onClick={() => {
                             changeLanguage(language);
                           }}
                         >
                           <img
-                            className="me-xl-2"
+                            className="me-2"
                             src={`${baseUrl}/img/flags/${language}.png`}
                             alt={language.toUpperCase()}
                             style={{
@@ -187,7 +187,7 @@ const Header = ({
                     </Dropdown.Menu>
                   </Dropdown>
                 </div>
-                <div className="col-xl-2">
+                <div className="col-2">
                   <button
                     className="btn btn-outline-secondary border rounded-circle"
                     onClick={toggleSearch}
@@ -195,7 +195,7 @@ const Header = ({
                     <i className="bi bi-search fs-5"></i>
                   </button>
                 </div>
-                <div className="col-xl-2">
+                <div className="col-2">
                   <button
                     className="btn btn-outline-secondary border rounded-circle d-none d-md-block"
                     onClick={goToAccount}
@@ -203,7 +203,7 @@ const Header = ({
                     <i className="bi bi-person fs-5"></i>
                   </button>
                 </div>
-                <div className="col-xl-4">
+                <div className="col-4">
                   <button
                     className="btn btn-outline-secondary border position-relative d-flex align-items-center"
                     onClick={toggleCart}

@@ -80,10 +80,10 @@ const ProductTabSection = ({
   }, [activeTab, parentId]);
 
   return (
-    <div className="section-product-tabs mt-xl-5">
+    <div className="section-product-tabs mt-xl-5 mt-lg-4">
       <div className="container">
         <div className="heading-bar position-relative d-flex">
-          <h2 className="w-auto mx-auto text-center position-relative z-2 bg-success-subtle d-inline px-xl-3">
+          <h2 className="w-auto mx-auto text-center position-relative z-2 bg-success-subtle d-inline px-xl-3 px-lg-2">
             <Link
               to="#"
               className="text-decoration-none fs-1 fw-semibold text-success"
@@ -92,11 +92,11 @@ const ProductTabSection = ({
             </Link>
           </h2>
         </div>
-        <div className="heading-tabs mx-xl-5 mt-xl-4 row justify-content-center">
+        <div className="heading-tabs mx-xl-5 mt-xl-4 mx-lg-5 mt-lg-3 row justify-content-center">
           {subCategories.slice(0, 3).map((sub) => (
             <button
               key={sub._id}
-              className={`btn product-tab col-xl-3 col-lg-3 mx-xl-3 ${
+              className={`btn product-tab col-3 mx-xl-3 mx-lg-3 ${
                 activeTab === sub._id ? "btn active" : "bg-white border"
               } hover`}
               onClick={() => setActiveTab(sub._id)}
@@ -105,11 +105,11 @@ const ProductTabSection = ({
             </button>
           ))}
         </div>
-        <div className="tab-content mt-xl-4">
-          <div className="product-list row bg-white py-xl-3 justify-content-center m-xl-0">
+        <div className="tab-content mt-xl-4 mt-lg-4">
+          <div className="product-list row bg-white py-xl-3 py-lg-3 justify-content-center m-0">
             {filteredProducts.length > 0 ? (
               filteredProducts.map((product, index) => (
-                <div className="col-xl-2" key={index}>
+                <div className="col-xl-2 col-lg-3" key={index}>
                   <ProductItem
                     key={product.id}
                     product={product}

@@ -14,7 +14,7 @@ const ProductItem = ({ product, addToCart }) => {
 
   if (!product) {
     return (
-      <div className="product-item p-3 border mx-xl-2">
+      <div className="product-item p-3 border mx-xl-2 ">
         {t("product.not-found")}
       </div>
     );
@@ -57,7 +57,7 @@ const ProductItem = ({ product, addToCart }) => {
 
   return (
     <div
-      className="product-item w-100 p-xl-3 border mx-xl-2 bg-white h-100 rounded-4 cursor-pointer hover"
+      className="product-item w-100 p-xl-3 p-lg-3 border mx-xl-2 mx-lg-2 bg-white h-100 rounded-4 cursor-pointer hover"
       onClick={handleShowProductDetail}
     >
       <img
@@ -66,22 +66,22 @@ const ProductItem = ({ product, addToCart }) => {
         alt={getTranslated(name)}
         style={{ height: "158px" }}
       />
-      <p className="mt-xl-3 line-clamp-2 fs-body fw-semibold text-hover fixed-two-lines">
+      <p className="mt-xl-3 mt-lg-3 line-clamp-2 fs-body fw-semibold text-hover fixed-two-lines">
         {getTranslated(name)}
       </p>
-      <div className="more d-flex justify-content-between mx-xl-1">
+      <div className="more d-flex justify-content-between mx-xl-1 mx-lg-1 align-items-center">
         <div className="price">
-          <p className="price-current m-xl-0 text-danger fw-bold">
+          <p className="price-current m-0 text-danger fw-bold">
             {formatPrice(discountPrice || price)}
           </p>
           {discountPrice && (
-            <p className="price-old text-decoration-line-through m-xl-0">
+            <p className="price-old text-decoration-line-through m-0 ">
               {formatPrice(price)}
             </p>
           )}
         </div>
         <button
-          className="text-danger border px-xl-2 py-xl-1 rounded-circle bg-warning-subtle hover"
+          className="text-danger border px-xl-2 py-xl-1 px-lg-2 py-lg-1 rounded-circle bg-warning-subtle hover"
           onClick={handleAddToCart}
           aria-label={`Add ${getTranslated(name)} to cart`}
         >
