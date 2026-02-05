@@ -127,14 +127,14 @@ const Header = ({
               <img
                 src={`${baseUrl}/img/logo/LOGO.png`}
                 alt="logo"
-                className="img-fluid col-12 col-md-8 col-lg-6 col-xl-6"
+                className="img-fluid col-12 col-md-8 col-lg-8 col-xl-8"
               />
             </div>
 
             {/* Right: Search, Account, Cart */}
-            <div className="d-flex align-items-center justify-content-end col-xl-5 col-lg-5 col-md-4 col-sm-4 col-5">
+            <div className="d-flex align-items-center justify-content-end col-xl-4 col-lg-5 col-md-4 col-sm-4 col-5">
               <div className="row justify-content-end align-items-center">
-                <div className="col-xl-2 col-lg-3 col-4 col-md-3">
+                <div className="col-xl-3 col-lg-3 col-md-3 col-4 ">
                   <Dropdown>
                     <Dropdown.Toggle
                       variant="outline-secondary"
@@ -148,7 +148,7 @@ const Header = ({
                           `${baseUrl}/img/flags/${currentLanguage}.jpg`
                         }
                         alt={currentLanguage.toUpperCase()}
-                        className="me-xl-1 rounded col-12"
+                        className="me-xl-1 rounded col-12 col-md-8 col-lg-8 col-xl-10"
                       />
                     </Dropdown.Toggle>
 
@@ -203,7 +203,7 @@ const Header = ({
                     <i className="bi bi-person fs-5"></i>
                   </button>
                 </div>
-                <div className="col-4 col-md-3 col-lg-2 col-xl-2">
+                <div className="col-4 col-md-3 col-lg-2 col-xl-4">
                   <button
                     className="btn btn-outline-secondary border position-relative d-flex align-items-center"
                     onClick={toggleCart}
