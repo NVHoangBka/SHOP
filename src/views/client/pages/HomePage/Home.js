@@ -51,13 +51,13 @@ const Home = ({
   return (
     <>
       <Slider />
-      <div className="home bg-success-subtle py-xl-4 py-lg-4">
+      <div className="home bg-success-subtle py-xl-4 py-lg-4 py-md-3 py-sm-2">
         <div className="container">
-          <div className="section-banner-group row">
+          <div className="section-banner-group row flex-nowrap flex-lg-wrap overflow-auto overflow-lg-visible my-3">
             {bannerHome
               .filter((banner) => banner.showHome === true)
               .map((banner, index) => (
-                <div key={index} className="banner-item col-4">
+                <div key={index} className="banner-item col-8 col-lg-4">
                   <img
                     src={banner.image}
                     alt="Banner 1"
@@ -66,14 +66,17 @@ const Home = ({
                 </div>
               ))}
           </div>
-          <div className="section-flashsale bg-danger rounded-4 mt-xl-5 pb-xl-3 mt-lg-5 pb-lg-3">
-            <h2 className="text-white ps-xl-3 py-xl-4 m-0 py-lg-3 ps-lg-3">
+          <div className="section-flashsale bg-danger rounded-4 mt-xl-5 pb-xl-3 mt-lg-5 pb-lg-3 mt-md-4 pb-md-3 mt-sm-3 pb-sm-2">
+            <h2 className="text-white ps-xl-3 py-xl-4 m-0 py-lg-3 ps-lg-3 py-md-2 ps-md-2 py-sm-1 ps-sm-1 ps-2 py-2">
               {t("home.flash-sale-title")}
             </h2>
-            <div className="product-flashsale-list row px-xl-1 m-0 justify-content-center px-lg-1">
+            <div className="product-flashsale-list flex-nowrap row overflow-auto overflow-md-visible p-3 ">
               {flashSaleProducts.length > 0 ? (
                 flashSaleProducts.slice(0, 6).map((product, index) => (
-                  <div className="col-2 col-lg-3" key={index}>
+                  <div
+                    className="col-6 col-sm-4 col-md-4 col-xl-2 col-lg-3"
+                    key={index}
+                  >
                     <ProductItem
                       key={product.id}
                       product={product}
@@ -89,14 +92,14 @@ const Home = ({
             </div>
           </div>
         </div>
-        <div className="section-collection mt-xl-5 mt-lg-4 position-relative">
+        <div className="section-collection mt-xl-5 mt-lg-4 mt-md-3 mt-sm-2 mt-3 position-relative">
           <img
             src="https://bizweb.dktcdn.net/100/518/448/themes/953339/assets/coll_bg.jpg?1733201190476"
             alt="Collection Background"
             className="w-100 position-absolute h-100"
           />
           <div className="container">
-            <div className="collection-list row py-xl-5 py-lg-4 position-relative fs-6">
+            <div className="collection-list row py-xl-5 py-lg-4 py-md-3 py-sm-2 py-2 position-relative fs-6">
               {/* {titlesHome.map((title, index) => (
                 <Link
                   key={index}

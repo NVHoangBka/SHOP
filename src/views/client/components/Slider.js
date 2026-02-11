@@ -40,44 +40,86 @@ function Slider() {
       </div>
       <div className="section-police">
         <div className="container">
-          <ul className="section-police-list row">
-            <li className="section-police-item d-flex mt-3 col-3">
-              <i className="bi bi-box-fill fs-5"></i>
-              <div className="section-police-title ms-2">
-                <h5 className="m-0 fs-6">
-                  {t("service-benefits.fast-delivery.title")}
-                </h5>
-                <p>{t("service-benefits.fast-delivery.description")}</p>
-              </div>
-            </li>
-            <li className="section-police-item d-flex mt-3 col-3">
-              <i className="bi bi-arrow-repeat fs-5"></i>
-              <div className="section-police-title ms-2">
-                <h5 className="m-0 fs-6">
-                  {t("service-benefits.free-returns.title")}
-                </h5>
-                <p>{t("service-benefits.free-returns.description")}</p>
-              </div>
-            </li>
-            <li className="section-police-item d-flex mt-3 col-3">
-              <i className="bi bi-hand-thumbs-up fs-5"></i>
-              <div className="section-police-title ms-2">
-                <h5 className="m-0 fs-6">
-                  {t("service-benefits.support-24-7.title")}
-                </h5>
-                <p>{t("service-benefits.support-24-7.description")}</p>
-              </div>
-            </li>
-            <li className="section-police-item d-flex mt-3 col-3">
-              <i className="bi bi-ticket-perforated fs-5"></i>
-              <div className="section-police-title ms-2">
-                <h5 className="m-0 fs-6">
-                  {t("service-benefits.hot-deals.title")}
-                </h5>
-                <p>{t("service-benefits.hot-deals.description")}</p>
-              </div>
-            </li>
-          </ul>
+          <div className="overflow-auto d-lg-none">
+            <ul className="section-police-list row flex-nowrap m-0">
+              <li className="section-police-item d-flex mt-3 col-8">
+                <i className="bi bi-box-fill fs-5"></i>
+                <div className="section-police-title ms-2">
+                  <h5 className="m-0 fs-6">
+                    {t("service-benefits.fast-delivery.title")}
+                  </h5>
+                  <p>{t("service-benefits.fast-delivery.description")}</p>
+                </div>
+              </li>
+              <li className="section-police-item d-flex mt-3 col-8">
+                <i className="bi bi-arrow-repeat fs-5"></i>
+                <div className="section-police-title ms-2">
+                  <h5 className="m-0 fs-6">
+                    {t("service-benefits.free-returns.title")}
+                  </h5>
+                  <p>{t("service-benefits.free-returns.description")}</p>
+                </div>
+              </li>
+              <li className="section-police-item d-flex mt-3 col-8">
+                <i className="bi bi-hand-thumbs-up fs-5"></i>
+                <div className="section-police-title ms-2">
+                  <h5 className="m-0 fs-6">
+                    {t("service-benefits.support-24-7.title")}
+                  </h5>
+                  <p>{t("service-benefits.support-24-7.description")}</p>
+                </div>
+              </li>
+              <li className="section-police-item d-flex mt-3 col-8">
+                <i className="bi bi-ticket-perforated fs-5"></i>
+                <div className="section-police-title ms-2">
+                  <h5 className="m-0 fs-6">
+                    {t("service-benefits.hot-deals.title")}
+                  </h5>
+                  <p>{t("service-benefits.hot-deals.description")}</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div className="d-lg-block d-none ">
+            <ul className="section-police-list row">
+              <li className="section-police-item d-flex mt-3 col-3">
+                <i className="bi bi-box-fill fs-5"></i>
+                <div className="section-police-title ms-2">
+                  <h5 className="m-0 fs-6">
+                    {t("service-benefits.fast-delivery.title")}
+                  </h5>
+                  <p>{t("service-benefits.fast-delivery.description")}</p>
+                </div>
+              </li>
+              <li className="section-police-item d-flex mt-3 col-3">
+                <i className="bi bi-arrow-repeat fs-5"></i>
+                <div className="section-police-title ms-2">
+                  <h5 className="m-0 fs-6">
+                    {t("service-benefits.free-returns.title")}
+                  </h5>
+                  <p>{t("service-benefits.free-returns.description")}</p>
+                </div>
+              </li>
+              <li className="section-police-item d-flex mt-3 col-3">
+                <i className="bi bi-hand-thumbs-up fs-5"></i>
+                <div className="section-police-title ms-2">
+                  <h5 className="m-0 fs-6">
+                    {t("service-benefits.support-24-7.title")}
+                  </h5>
+                  <p>{t("service-benefits.support-24-7.description")}</p>
+                </div>
+              </li>
+              <li className="section-police-item d-flex mt-3 col-3">
+                <i className="bi bi-ticket-perforated fs-5"></i>
+                <div className="section-police-title ms-2">
+                  <h5 className="m-0 fs-6">
+                    {t("service-benefits.hot-deals.title")}
+                  </h5>
+                  <p>{t("service-benefits.hot-deals.description")}</p>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </>

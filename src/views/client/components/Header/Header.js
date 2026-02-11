@@ -107,7 +107,7 @@ const Header = ({
         <div className="container">
           <div className="d-flex justify-content-between align-items-center row py-xl-1 py-lg-1 py-md-1 py-sm-1 py-1">
             {/* Left: Menu */}
-            <div className="header-top-left d-flex align-items-center col-xl-3 col-lg-3 col-md-2 col-sm-4 col-1">
+            <div className="header-top-left d-flex align-items-center col-xl-3 col-lg-2 col-md-2 col-sm-4 col-1">
               <button
                 className="btn btn-outline-secondary border rounded-circle"
                 onClick={toggleMenu}
@@ -120,7 +120,7 @@ const Header = ({
             </div>
             {/* Center: Logo */}
             <div
-              className="header-top-center text-center col-xl-4 col-lg-4 col-md-4 col-sm-4 col-5 ms-1"
+              className="header-top-center text-center col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4 ms-1"
               onClick={goHome}
               style={{ background: "transparent", cursor: "pointer" }}
             >
@@ -132,9 +132,9 @@ const Header = ({
             </div>
 
             {/* Right: Search, Account, Cart */}
-            <div className="d-flex align-items-center justify-content-end col-xl-4 col-lg-5 col-md-5 col-sm-4 col-5">
-              <div className="row justify-content-end align-items-center">
-                <div className="col-xl-3 col-lg-3 col-md-4 col-4 ">
+            <div className="d-flex align-items-center justify-content-end col-xl-4 col-lg-5 col-md-5 col-sm-4 col-6">
+              <div className="row justify-content-end align-items-center w-100 gx-2">
+                <div className="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-4">
                   <Dropdown>
                     <Dropdown.Toggle
                       variant="outline-secondary"
@@ -187,7 +187,7 @@ const Header = ({
                     </Dropdown.Menu>
                   </Dropdown>
                 </div>
-                <div className="col-xl-2 col-lg-2 col-md-3 col-4">
+                <div className="col-xl-2 col-lg-2 col-md-3 col-sm-2 col-4">
                   <button
                     className="btn btn-outline-secondary border rounded-circle"
                     onClick={toggleSearch}
@@ -195,7 +195,7 @@ const Header = ({
                     <i className="bi bi-search fs-5"></i>
                   </button>
                 </div>
-                <div className="col-xl-2 col-lg-2 col-md-3 col-0">
+                <div className="col-xl-2 col-lg-2 col-md-3 d-none d-md-block">
                   <button
                     className="btn btn-outline-secondary border rounded-circle d-none d-md-block"
                     onClick={goToAccount}
@@ -203,7 +203,7 @@ const Header = ({
                     <i className="bi bi-person fs-5"></i>
                   </button>
                 </div>
-                <div className="col-xl-4 col-lg-2 col-md-2 col-4">
+                <div className="col-xl-4 col-lg-2 col-md-2 col-sm-2 col-4">
                   <button
                     className="btn btn-outline-secondary border position-relative d-flex align-items-center"
                     onClick={toggleCart}
