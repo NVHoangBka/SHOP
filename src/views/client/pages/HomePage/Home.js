@@ -51,7 +51,7 @@ const Home = ({
   return (
     <>
       <Slider />
-      <div className="home bg-success-subtle py-xl-4 py-lg-4 py-md-3 py-sm-2">
+      <div className="home bg-success-subtle py-xl-4 py-lg-4 py-md-3 py-sm-2 py-1">
         <div className="container">
           <div className="section-banner-group row flex-nowrap flex-lg-wrap overflow-auto overflow-lg-visible my-3">
             {bannerHome

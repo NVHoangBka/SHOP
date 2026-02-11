@@ -92,7 +92,7 @@ const ProductTabSection = ({
             </Link>
           </h2>
         </div>
-        <div className="heading-tabs mx-xl-5 mt-xl-4 mx-lg-5 mt-lg-3 mt-2 mx-md-4 mt-md-1 mx-2 row flex-nowrap overflow-auto overflow-md-visible justify-content-center">
+        <div className="heading-tabs mx-xl-5 mt-xl-4 mx-lg-5 mt-lg-3 mt-2 mx-md-4 mt-md-1 mx-2 row flex-nowrap overflow-auto overflow-md-visible justify-content-md-center">
           {subCategories.slice(0, 3).map((sub) => (
             <button
               key={sub._id}
@@ -128,7 +128,7 @@ const ProductTabSection = ({
           <Link
             to={`/products/${path}`}
             alt={t("product.features.showMore")}
-            className="bg-white w-100 d-flex mt-xl-4 p-xl-2 mt-lg-3 p-lg-2 mt-md-2 p-md-1 mt-sm-1 p-sm-1 justify-content-center text-decoration-none text-success hover rounded-2"
+            className="bg-white w-100 d-flex mt-xl-4 mt-lg-3 mt-md-2 mt-sm-1 mt-2 p-xl-2 p-lg-2 p-md-1 p-sm-1 p-1 justify-content-center text-decoration-none text-success hover rounded-2"
           >
             {t("common.view-all")}
             <i className="ms-1 bi bi-arrow-right"></i>
