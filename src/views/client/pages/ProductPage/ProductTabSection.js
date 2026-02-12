@@ -105,8 +105,8 @@ const ProductTabSection = ({
             </button>
           ))}
         </div>
-        <div className="tab-content mt-xl-4 mt-lg-4 mt-md-3 mt-sm-2 mt-2">
-          <div className="product-list row bg-white py-xl-3 py-lg-3 py-md-2 py-sm-1 py-2 justify-content-center m-0">
+        <div className="tab-content mt-xl-4 mt-lg-4 mt-md-3 mt-sm-3 mt-3">
+          <div className="product-list row bg-white py-xl-3 py-lg-3 py-md-2 py-sm-1 py-2 justify-content-md-center m-0">
             {filteredProducts.length > 0 ? (
               filteredProducts.map((product, index) => (
                 <div

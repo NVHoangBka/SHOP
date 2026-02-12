@@ -9,7 +9,7 @@ const CartHeader = ({
   onCartChange,
 }) => {
   const navigate = useNavigate();
-  const [t, i18n] = useTranslation();
+  const [t] = useTranslation();
   const [cartItems, setCartItems] = useState(propCartItems || []);
   const [total, setTotal] = useState(cartController.getTotalPrice());
   const [showBillInfo, setShowBillInfo] = useState(true);
@@ -30,7 +30,7 @@ const CartHeader = ({
     if (currentItem) {
       const updatedCart = cartController.updateQuantity(
         id,
-        currentItem.quantity + 1
+        currentItem.quantity + 1,
       );
       setCartItems([...updatedCart]);
       setTotal(cartController.getTotalPrice());
@@ -43,7 +43,7 @@ const CartHeader = ({
     if (currentItem && currentItem.quantity > 1) {
       const updatedCart = cartController.updateQuantity(
         id,
-        currentItem.quantity - 1
+        currentItem.quantity - 1,
       );
       setCartItems([...updatedCart]);
       setTotal(cartController.getTotalPrice());

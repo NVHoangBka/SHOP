@@ -259,7 +259,7 @@ const Header = ({
           <Offcanvas.Title>
             <Link
               to={"/account/login"}
-              className="header-icon-group text-reset d-flex align-items-center text-decoration-none py-xl-1 px-xl-2 menu-hover"
+              className="header-icon-group text-reset d-flex align-items-center text-decoration-none py-xl-1 px-xl-2 py-1 px-2 menu-hover"
             >
               <div className="header-icon align-content-center me-xl-2">
                 <i className="bi bi-person fs-3 border px-1"></i>
@@ -269,9 +269,9 @@ const Header = ({
                   {`Xin chào, ${currentUser.firstName} ${currentUser.lastName}`}
                 </div>
               ) : (
-                <div className="lh-sm">
-                  <p className="mb-xl-1 fs-6">{t("account.title")}</p>
-                  <span className="fw-bold fs-6">
+                <div className="lh-sm ">
+                  <p className="mb-xl-1 mb-1 fs-6 ">{t("account.title")}</p>
+                  <span className="fw-bold fs-6 ">
                     {t("system.login.title")}
                   </span>
                 </div>

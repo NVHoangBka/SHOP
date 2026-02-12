@@ -5,6 +5,7 @@ import { t } from "i18next";
 const Menu = ({ menuRef, onClose, categoryController, getTranslated }) => {
   const [categories, setCategories] = useState([]);
   const [categoriesMenu, setCategoriesMenu] = useState([]);
+  const [isOpenSubMenu, setIsOpenSubMenu] = useState(false);
 
   const [loading, setLoading] = useState(true);
 
@@ -35,6 +36,10 @@ const Menu = ({ menuRef, onClose, categoryController, getTranslated }) => {
 
   const handleItemClick = () => {
     onClose(false);
+  };
+  const handSubMenuOpen = (e) => {
+    e.preventDefault();
+    setIsOpenSubMenu(!isOpenSubMenu);
   };
 
   if (loading) return <div>{t("menu.loading")}</div>;
@@ -70,13 +75,27 @@ const Menu = ({ menuRef, onClose, categoryController, getTranslated }) => {
                         {getTranslated(category.name)}
                       </span>
                       {subCategories?.length > 0 && (
-                        <i className="bi bi-caret-right-fill d-flex align-items-center"></i>
+                        <i
+                          className="bi bi-caret-right-fill d-flex align-items-center"
+                          onClick={handSubMenuOpen}
+                        ></i>
                       )}
                     </Link>
+
                     {subCategories?.length > 0 && (
-                      <ul className="menu-list">
+                      <ul className={`submenu-list `}>
+                        <div className="dropdown-submenu-arrow px-3 py-2 d-flex align-items-center bg-light border-bottom">
+                          <i
+                            className="bi bi-caret-left-fill"
+                            onClick={handSubMenuOpen}
+                          ></i>
+                          {getTranslated(category.name)}
+                        </div>
                         {subCategories.map((subCategory) => (
-                          <li key={subCategory._id} className="menu-hover">
+                          <li
+                            key={subCategory._id}
+                            className={`menu-hover ${isOpenSubMenu ? "activeOpen" : ""}`}
+                          >
                             <Link
                               to={`/products/${getTranslated(
                                 category.slug,
@@ -149,13 +168,13 @@ const Menu = ({ menuRef, onClose, categoryController, getTranslated }) => {
             </li>
           </ul>
         </div>
-        <div className="menu-footer row mx-xl-0 border-top pt-xl-2">
-          <div className="col-xl-6 py-xl-4 menu-hover">
-            <i className="bi bi-shop border p-xl-2"></i>
+        <div className="menu-footer row mx-xl-0 border-top pt-xl-2 mx-0 pt-2 align-items-center">
+          <div className="col-xl-6 py-xl-4 col-6 py-3 menu-hover">
+            <i className="bi bi-shop border p-xl-2 p-1"></i>
             <span className="ps-2">{t("menu.storeSystem")}</span>
           </div>
-          <div className="col-xl-6 py-xl-4 menu-hover">
-            <i className="bi bi-telephone-outbound border p-xl-2"></i>
+          <div className="col-xl-6 py-xl-4 col-6 py-2 menu-hover ">
+            <i className="bi bi-telephone-outbound border p-xl-2 p-1"></i>
             <span className="ps-xl-2">Holine: 0999999998</span>
           </div>
         </div>

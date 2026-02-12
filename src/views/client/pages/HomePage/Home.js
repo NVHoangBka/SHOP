@@ -70,7 +70,7 @@ const Home = ({
             <h2 className="text-white ps-xl-3 py-xl-4 m-0 py-lg-3 ps-lg-3 py-md-2 ps-md-2 py-sm-1 ps-sm-1 ps-2 py-2">
               {t("home.flash-sale-title")}
             </h2>
-            <div className="product-flashsale-list flex-nowrap row overflow-auto overflow-md-visible p-3 ">
+            <div className="product-flashsale-list flex-nowrap row overflow-auto overflow-md-visible p-3 justify-content-lg-center">
               {flashSaleProducts.length > 0 ? (
                 flashSaleProducts.slice(0, 6).map((product, index) => (
                   <div
