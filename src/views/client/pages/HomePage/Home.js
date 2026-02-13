@@ -17,6 +17,8 @@ const Home = ({
   const [flashSaleProducts, setFlashSaleProducts] = useState([]);
   const [bannerHome, setBannerHome] = useState([]);
   const [categoriesHome, setCategoriesHome] = useState([]);
+  const [timeLeft, setTimeLeft] = useState({});
+  const [status, setStatus] = useState("not-started");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -48,6 +50,47 @@ const Home = ({
     return obj?.[currentLanguage] || obj?.vi || obj?.en || obj?.cz || fallback;
   };
 
+  const calculateTimeLeft = () => {
+    const startDate = new Date();
+    const endDate = new Date();
+    const now = new Date();
+
+    endDate.setHours(23, 59, 59);
+
+    if (now < startDate) {
+      setStatus("not-started");
+      const diff = startDate - now;
+      return {
+        hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((diff / 1000 / 60) % 60),
+        seconds: Math.floor((diff / 1000) % 60),
+      };
+    }
+
+    // ĐANG DIỄN RA
+    if (now >= startDate && now <= endDate) {
+      setStatus("ongoing");
+      const diff = endDate - now;
+      return {
+        hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((diff / 1000 / 60) % 60),
+        seconds: Math.floor((diff / 1000) % 60),
+      };
+    }
+
+    // ĐÃ KẾT THÚC
+    setStatus("ended");
+    return { hours: 0, minutes: 0, seconds: 0 };
+  };
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft(calculateTimeLeft());
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <>
       <Slider />
@@ -67,9 +110,60 @@ const Home = ({
               ))}
           </div>
           <div className="section-flashsale bg-danger rounded-4 mt-xl-5 pb-xl-3 mt-lg-5 pb-lg-3 mt-md-4 pb-md-3 mt-sm-3 pb-sm-2">
-            <h2 className="text-white ps-xl-3 py-xl-4 m-0 py-lg-3 ps-lg-3 py-md-2 ps-md-2 py-sm-1 ps-sm-1 ps-2 py-2">
-              {t("home.flash-sale-title")}
-            </h2>
+            <div className="flashsale-header d-flex flex-column flex-lg-row align-items-center justify-content-lg-between text-center text-lg-start">
+              <h1 className="text-white ps-xl-3 py-xl-4 m-0 py-lg-3 ps-lg-3 py-md-2 ps-md-2 py-sm-1 ps-sm-1 ps-2 py-2 fw-bold lh-base">
+                {t("home.flash-sale-title")}
+              </h1>
+              <div className="flashsale__countdown-timer flex-wrap flashsale__countdown-wrapper d-flex items-align-center gap-2 justify-content-end pe-xl-3 pe-lg-3 pe-md-2 pe-sm-1 pe-2">
+                <div className="flashsale__countdown-title text-center text-white me-3 d-flex align-items-center">
+                  {status === "not-started" && (
+                    <span>{t("home.not-started")}</span>
+                  )}
+
+                  {status === "ongoing" && (
+                    <span>
+                      {t("home.ongoing_line1")} <br />
+                      <b>{t("home.ongoing_line2")}</b>
+                    </span>
+                  )}
+
+                  {status === "ended" && <span>{t("home.ended")}</span>}
+                </div>
+                <div className="flashsale__countdown">
+                  <div className="row g-2 justify-content-center align-items-center">
+                    {/* Hours */}
+                    <div className="col-auto">
+                      <div className="bg-warning rounded text-center p-2 overflow-hidden countdown-box">
+                        <div key={timeLeft.hours} className="count-number">
+                          {String(timeLeft.hours || 0).padStart(2, "0")}
+                        </div>
+                        <div className="small">{t("home.hours")}</div>
+                      </div>
+                    </div>
+
+                    {/* Minutes */}
+                    <div className="col-auto">
+                      <div className="bg-warning rounded text-center p-2 overflow-hidden countdown-box">
+                        <div key={timeLeft.minutes} className="count-number">
+                          {String(timeLeft.minutes || 0).padStart(2, "0")}
+                        </div>
+                        <div className="small">{t("home.minutes")}</div>
+                      </div>
+                    </div>
+
+                    {/* Seconds */}
+                    <div className="col-auto">
+                      <div className="bg-warning rounded text-center p-2 overflow-hidden countdown-box">
+                        <div key={timeLeft.seconds} className="count-number">
+                          {String(timeLeft.seconds || 0).padStart(2, "0")}
+                        </div>
+                        <div className="small">{t("home.seconds")}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div className="product-flashsale-list flex-nowrap row overflow-auto overflow-md-visible p-3 justify-content-lg-center">
               {flashSaleProducts.length > 0 ? (
                 flashSaleProducts.slice(0, 6).map((product, index) => (

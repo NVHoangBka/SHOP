@@ -270,7 +270,7 @@ const Header = ({
                 </div>
               ) : (
                 <div className="lh-sm ">
-                  <p className="mb-xl-1 mb-1 fs-6 ">{t("account.title")}</p>
+                  <p className="mb-xl-1 mb-1 fs-6">{t("account.title")}</p>
                   <span className="fw-bold fs-6 ">
                     {t("system.login.title")}
                   </span>
