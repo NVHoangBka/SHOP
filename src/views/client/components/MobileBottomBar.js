@@ -14,7 +14,7 @@ const MobileBottomBar = ({ cartCount = 0, isOutOfStock = false }) => {
     <div className="mobile-bottom-menu d-md-none bg-white border-top shadow-sm sticky-bottom">
       <div className="container-fluid">
         {isProductDetail ? (
-          <div className="row align-items-center text-center pt-2">
+          <div className="row align-items-center text-center py-2">
             <div className="col-2">
               <i className="bi bi-telephone fs-6 text-success"></i>
               <div className="fs-8">{t("mbBar.call")}</div>
