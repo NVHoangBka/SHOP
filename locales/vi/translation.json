@@ -144,8 +144,17 @@
         }
     },
     "home": {
-        "flash-sale-title": "Chớp thời cơ. Giá như mơ",
-        "no-flash-sale": "Không có sản phẩm flash sale."
+        "flash-sale-title": "Chớp thời cơ. Giá như mơ!",
+        "no-flash-sale": "Không có sản phẩm flash sale.",
+        "flash-sale-single-slot": "Flash Sale 1 khung giờ",
+        "flash-sale-multiple-slots": "Flash Sale nhiều khung giờ",
+        "not-started": "Chương trình chưa bắt đầu",
+        "ongoing_line1": "Nhanh lên nào!",
+        "ongoing_line2": "Sự kiện sẽ kết thúc sau",
+        "ended": "Chương trình đã kết thúc",
+        "hours": "Giờ",
+        "minutes": "Phút",
+        "seconds": "Giây"
     },
     "product": {
         "breadcrumb": {
@@ -829,5 +838,15 @@
                 "confirmFailed": "Xác nhận thanh toán thất bại!"
             }
         }
+    },
+    "mbBar": {
+        "call": "Gọi điện",
+        "chat": "Nhắn tin",
+        "cart": "Giỏ hàng",
+        "promotion": "Khuyến mãi",
+        "store": "Cửa hàng",
+        "product": "Sản phẩm",
+        "outOfStock": "Hết hàng",
+        "addToCart": "Thêm vào giỏ"
     }
 }
