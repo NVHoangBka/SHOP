@@ -134,7 +134,7 @@ const Header = ({
             {/* Right: Search, Account, Cart */}
             <div className="d-flex align-items-center justify-content-end col-xl-4 col-lg-5 col-md-5 col-sm-4 col-6">
               <div className="row justify-content-end align-items-center w-100 gx-2">
-                <div className="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-4">
+                <div className="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-4 me-xl-2">
                   <Dropdown>
                     <Dropdown.Toggle
                       variant="outline-secondary"
@@ -148,7 +148,7 @@ const Header = ({
                           `${baseUrl}/img/flags/${currentLanguage}.jpg`
                         }
                         alt={currentLanguage.toUpperCase()}
-                        className="me-xl-1 rounded col-12 col-md-8 col-lg-8 col-xl-10"
+                        className="me-xl-1 rounded col-12 col-md-8 col-lg-8 col-xl-9"
                       />
                     </Dropdown.Toggle>
 
