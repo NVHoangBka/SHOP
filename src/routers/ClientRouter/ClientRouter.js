@@ -86,6 +86,7 @@ const ClientRouter = (props, index) => (
           addToCart={props.addToCart}
           productController={props.productController}
           titleController={props.titleController}
+          categoryController={props.categoryController}
         />
       }
     />

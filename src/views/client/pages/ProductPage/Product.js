@@ -3,17 +3,20 @@ import { Link, useParams } from "react-router-dom";
 import ProductItem from "./ProductItem";
 import { useTranslation } from "react-i18next";
 
-const Product = ({ path, addToCart, productController, titleController }) => {
+const Product = ({
+  path,
+  addToCart,
+  productController,
+  categoryController,
+}) => {
   const [t] = useTranslation();
   const params = useParams();
-  const fullPath = params["*"];
-  const [titlePath, subTitlePath] = fullPath
-    ? fullPath.split("/")
-    : [path, null];
-  const [titlePathCover, setTitlePathConver] = useState();
+  const titlePath = params.subCategory
+    ? params.subCategory
+    : params.category || path;
   const [activeTab, setActiveTab] = useState(path || "all");
+  const [titlePathCover, setTitlePathCover] = useState();
   const [title, setTitle] = useState();
-  const [titlesLoaded, setTitlesLoaded] = useState(false);
 
   // state cho phân trang
   const [currentPage, setCurrentPage] = useState(1);
@@ -27,42 +30,53 @@ const Product = ({ path, addToCart, productController, titleController }) => {
     color: [],
   });
 
+  const currentLanguage = localStorage.getItem("i18n_lang");
+
+  const getTranslated = (obj, fallback = "") => {
+    return obj?.[currentLanguage] || obj?.vi || obj?.en || obj?.cz || fallback;
+  };
+
   const [showFilter, setShowFilter] = useState(false);
 
-  // TẢI DANH MỤC TRƯỚC
-  useEffect(() => {
-    async function loadTitles() {
-      // await titleController.getAllTitles(); // TẢI VÀO BỘ NHỚ
-      setTitlesLoaded(true);
-    }
-    loadTitles();
-  }, [titleController]);
-
   // === 1. CẬP NHẬT TITLE + activeTab ===
-  useEffect(() => {
-    if (titlePath !== "all") {
-      setActiveTab(titlePath);
-      const titleObj = titleController.getTitlesByPath(titlePath)[0];
-      const titleName = titleObj?.name || titlePath;
-      // Nếu có subcategory thì hiển thị song song
-      if (subTitlePath) {
-        const subTitleObj = titleController.getSubTitlesByPath(
-          titlePath,
-          subTitlePath,
-        );
-        const subTitleName = subTitleObj?.name || subTitlePath;
-        setTitlePathConver(`${titleName} / ${subTitleName}`);
-        setTitle(subTitleName);
-      } else {
-        setTitlePathConver(titleName);
-        setTitle(titleName);
-      }
-    } else {
+  const fetchTitle = async () => {
+    if (titlePath === "all") {
       setActiveTab("all");
       setTitle("Tất cả sản phẩm");
-      setTitlePathConver("Tất cả sản phẩm");
+      setTitlePathCover("Tất cả sản phẩm");
+      return;
     }
-  }, [titlePath, subTitlePath, titleController]);
+
+    // Gọi song song nếu có subCategory
+    const [categoryRes, subCategoryRes] = await Promise.all([
+      categoryController.getCategoriesByValue(params.category),
+      params.subCategory
+        ? categoryController.getCategoriesByValue(params.subCategory)
+        : Promise.resolve(null),
+    ]);
+
+    const category = categoryRes?.category?.[0] || null;
+    const subCategory = subCategoryRes?.category?.[0] || null;
+
+    if (subCategoryRes?.success && subCategory) {
+      setTitle(getTranslated(subCategory.name) || "");
+      setActiveTab(subCategory._id);
+    } else {
+      setTitle(getTranslated(category.name) || "");
+      setActiveTab(category._id);
+    }
+
+    const titleCategory = getTranslated(category?.name) || "";
+    const titleSubCategory = getTranslated(subCategory?.name) || "";
+
+    const path = [titleCategory, titleSubCategory].filter(Boolean).join(" / ");
+
+    setTitlePathCover(path);
+  };
+
+  useEffect(() => {
+    fetchTitle();
+  }, [titlePath, categoryController]);
 
   const resetAllFilters = () => {
     setFilters({
@@ -140,14 +154,9 @@ const Product = ({ path, addToCart, productController, titleController }) => {
         let products =
           activeTab === "all"
             ? await productController.getAllProducts()
-            : await productController.getProductsByTitle(activeTab);
-
-        // B2: Lọc theo subTitle (nếu có)
-        if (subTitlePath) {
-          products = products.filter((p) =>
-            p.subTitles?.includes(subTitlePath),
-          );
-        }
+            : params.subCategory
+              ? await productController.getProductsBySubCategory(activeTab)
+              : await productController.getProductsByCategory(activeTab);
 
         // B3: Áp dụng các filter
         if (filters.price?.length > 0) {
@@ -207,7 +216,7 @@ const Product = ({ path, addToCart, productController, titleController }) => {
     return () => {
       isMounted = false;
     };
-  }, [activeTab, subTitlePath, filters, productController]);
+  }, [activeTab, filters, productController]);
 
   // tính toán vị trí sản phẩm
   const indexOfLastProduct = currentPage * productsPerPage;

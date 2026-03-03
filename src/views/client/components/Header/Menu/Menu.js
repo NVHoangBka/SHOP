@@ -63,32 +63,31 @@ const Menu = ({ menuRef, onClose, categoryController, getTranslated }) => {
                 const subCategories = getSubCategories(category._id);
                 return (
                   <li key={category._id} className="dropdown-submenu">
-                    <Link
-                      to={`/products/${getTranslated(category.slug)}`}
-                      className="d-flex justify-content-between menu-hover"
-                      aria-haspopup="true"
-                      aria-expanded={
-                        subCategories?.length > 0 ? "false" : undefined
-                      }
-                    >
-                      <span className="fw-medium">
-                        {getTranslated(category.name)}
-                      </span>
+                    <div className="d-flex justify-content-between">
+                      <Link
+                        to={`/products/${getTranslated(category.slug)}`}
+                        className=" menu-hover flex-fill"
+                        onClick={handleItemClick}
+                      >
+                        <span className="fw-medium">
+                          {getTranslated(category.name)}
+                        </span>
+                      </Link>
                       {subCategories?.length > 0 && (
                         <i
-                          className="bi bi-caret-right-fill d-flex align-items-center"
+                          className="bi bi-chevron-right d-flex align-items-center ms-2"
                           onClick={handSubMenuOpen}
                         ></i>
                       )}
-                    </Link>
+                    </div>
 
-                    {subCategories?.length > 0 && (
+                    {subCategories?.length > 0 && isOpenSubMenu && (
                       <ul className={`submenu-list `}>
-                        <div className="dropdown-submenu-arrow px-3 py-2 d-flex align-items-center bg-light border-bottom">
-                          <i
-                            className="bi bi-caret-left-fill"
-                            onClick={handSubMenuOpen}
-                          ></i>
+                        <div
+                          className="dropdown-submenu-arrow px-3 py-2 d-flex align-items-center bg-light border-bottom"
+                          onClick={handSubMenuOpen}
+                        >
+                          <i className="bi bi-chevron-left me-2"></i>
                           {getTranslated(category.name)}
                         </div>
                         {subCategories.map((subCategory) => (

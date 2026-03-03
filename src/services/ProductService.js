@@ -53,7 +53,6 @@ class ProductService {
     const resultProducts = res.filter((item) =>
       item.categories?.some((c) => c.id === categoryId),
     );
-
     return this.productModel.mapProducts(resultProducts);
   }
 

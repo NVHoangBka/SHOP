@@ -7,7 +7,12 @@ import ProductDetail from "../../views/client/pages/ProductDetailPage/ProductDet
 import Product from "../../views/client/pages/ProductPage/Product";
 import SearchResults from "../../views/client/pages/SearchResultsPage/SearchResults";
 
-const ProductRouter = ({ addToCart, productController, titleController }) => {
+const ProductRouter = ({
+  addToCart,
+  productController,
+  titleController,
+  categoryController,
+}) => {
   const [paths, setPaths] = useState(["all"]);
   const [loading, setLoading] = useState(true);
 
@@ -45,10 +50,23 @@ const ProductRouter = ({ addToCart, productController, titleController }) => {
               path={path}
               productController={productController}
               titleController={titleController}
+              categoryController={categoryController}
             />
           }
         />
       ))}
+
+      <Route
+        path={`/:category/:subCategory?`}
+        element={
+          <Product
+            addToCart={addToCart}
+            path={null}
+            productController={productController}
+            categoryController={categoryController}
+          />
+        }
+      ></Route>
 
       <Route
         path={`/slug/:slug`}

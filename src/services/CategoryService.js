@@ -2,6 +2,12 @@
 import api from "./api";
 import { categories } from "../data/categories";
 
+const currentLanguage = localStorage.getItem("i18n_lang");
+
+const getTranslated = (obj, fallback = "") => {
+  return obj?.[currentLanguage] || obj?.vi || obj?.en || obj?.cz || fallback;
+};
+
 class CategoryService {
   // ========= CATEGORY ==============
 
@@ -42,8 +48,12 @@ class CategoryService {
     }
   }
 
-  async getCategoriesByValue() {
+  async getCategoriesByValue(value) {
     try {
+      const res = categories.filter(
+        (c) => c.isActive && getTranslated(c.slug) === value,
+      );
+      return { success: true, category: res };
     } catch {}
   }
   /**
