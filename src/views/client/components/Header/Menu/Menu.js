@@ -75,12 +75,13 @@ const Menu = ({ menuRef, onClose, categoryController, getTranslated }) => {
                       </Link>
                       {subCategories?.length > 0 && (
                         <i
-                          className="bi bi-chevron-right d-flex align-items-center ms-2"
+                          className="bi bi-chevron-right d-flex align-items-center ms-2 pe-2"
                           onClick={handSubMenuOpen}
                         ></i>
                       )}
                     </div>
 
+                    {/* Submenu < tablet */}
                     {subCategories?.length > 0 && isOpenSubMenu && (
                       <ul className={`submenu-list `}>
                         <div
@@ -94,6 +95,33 @@ const Menu = ({ menuRef, onClose, categoryController, getTranslated }) => {
                           <li
                             key={subCategory._id}
                             className={`menu-hover ${isOpenSubMenu ? "activeOpen" : ""}`}
+                          >
+                            <Link
+                              to={`/products/${getTranslated(
+                                category.slug,
+                              )}/${getTranslated(subCategory.slug)}`}
+                              onClick={handleItemClick}
+                            >
+                              {getTranslated(subCategory.name)}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+
+                    {subCategories?.length > 0 && (
+                      <ul className="submenu-desktop position-absolute top-0 start-100 bottom-0 bg-white d-none w-100 border p-0 shadow rounded">
+                        <div
+                          className="dropdown-submenu-arrow py-3 px-2 d-flex align-items-center bg-light border-bottom"
+                          onClick={handSubMenuOpen}
+                        >
+                          <i className="bi bi-chevron-left me-2"></i>
+                          {getTranslated(category.name)}
+                        </div>
+                        {subCategories.map((subCategory) => (
+                          <li
+                            key={subCategory._id}
+                            className={`menu-hover border-bottom px-2  ${isOpenSubMenu ? "activeOpen" : ""}`}
                           >
                             <Link
                               to={`/products/${getTranslated(
@@ -131,7 +159,7 @@ const Menu = ({ menuRef, onClose, categoryController, getTranslated }) => {
                 className="d-flex justify-content-between menu-hover"
               >
                 <span>{t("menu.flashSale")}</span>
-                <i className="bi bi-caret-right-fill d-flex align-items-center"></i>
+                <i className="bi bi-chevron-right d-flex align-items-center"></i>
               </Link>
               <ul className="menu-list">
                 <li className="menu-hover">

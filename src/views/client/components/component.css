@@ -68,7 +68,7 @@
 }
 
 .menu-container {
-      display: grid;
+    display: grid;
     height: 100%;
     grid-template-rows: auto 1fr auto;
     align-items: start;
@@ -136,6 +136,13 @@
 
   .dropdown-submenu:hover > .submenu-list {
     display: block;
+  }
+}
+
+
+@media (min-width: 920px) {
+  .dropdown-submenu:hover > .submenu-desktop {
+    display: block !important;
   }
 }
 

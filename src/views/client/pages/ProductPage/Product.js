@@ -30,6 +30,8 @@ const Product = ({
     color: [],
   });
 
+  const filtersLength = Object.values(filters).flat().length - 1;
+
   const currentLanguage = localStorage.getItem("i18n_lang");
 
   const getTranslated = (obj, fallback = "") => {
@@ -239,6 +241,8 @@ const Product = ({
   const onPriceChange = (e) => handleFilterChange("price", e);
   const onTagChange = (e) => handleFilterChange("tag", e);
 
+  console.log();
+
   return (
     <div className="product bg-success-subtle">
       <div className="container">
@@ -261,7 +265,7 @@ const Product = ({
           </ul>
         </div>
         <section className="section section-collection-banner">
-          <div className="collection_banner container text-center mb-xl-5 mb-lg-5 mb-md-4 mb-3 px-0">
+          <div className="collection_banner container text-center mb-xl-4 mb-lg-4 mb-md-4 mb-3 px-0">
             <Link className="banner" to="#" title={t("product.allProducts")}>
               <picture>
                 <source
@@ -282,23 +286,23 @@ const Product = ({
         </section>
         <section className="section grid w-100" id="product-list-0">
           <div className="row mx-0">
-            <div className="content-product-left col-xl-9 col-lg-9 col-md-9 col-12 pe-0">
+            <div className="content-product-left col-xl-9 col-lg-9 col-12 pe-0">
               <h2 className="text-success fs-1 fw-semibold text-center text-md-start">
                 {title}
               </h2>
               <div className="d-left flex-row-reverse align-items-center mb-xl-2 mb-lg-2 mb-md-1 mb-1">
-                <div className="d-flex justify-content-between justify-content-md-end">
+                <div className="d-flex justify-content-between justify-content-lg-end">
                   <button
-                    className="btn btn-outline-dark d-md-none rounded-pill d-flex align-items-center me-2 bg-white border-0"
+                    className="btn btn-outline-dark d-lg-none rounded-pill d-flex align-items-center me-2 bg-white border-0"
                     onClick={() => setShowFilter(true)}
                   >
                     <i className="bi bi-funnel me-2"></i>
                     {t("product.filter.title")}
                     <span className="filter-count inline-flex align-items-center justify-content-center text-white rounded-circle ms-2 bg-danger px-2">
-                      0
+                      {filtersLength}
                     </span>
                   </button>
-                  <div className="sort-mobile whitespace-nowrap d-flex align-items-center me-xl-3 me-lg-3 me-md-2 me-1">
+                  <div className="sort-mobile whitespace-nowrap d-flex align-items-center me-xl-3 me-lg-3 me-md-2  me-1">
                     <label
                       htmlFor="sort-mobile"
                       className="labbel text-light-emphasis me-2"
@@ -336,7 +340,7 @@ const Product = ({
                     </sort-by>
                   </div>
                 </div>
-                <div className="filter-items w-100 d-flex flex-wrap mb-xl-3 mb-lg-3 mb-md-2 mb-1 mt-3 align-items-center">
+                <div className="filter-items w-100 d-flex flex-wrap mb-1 mt-3 align-items-center">
                   {Object.entries(filters || {}).flatMap(([key, items]) =>
                     Array.isArray(items)
                       ? items.map((item) => (
@@ -369,13 +373,13 @@ const Product = ({
                   )}
                 </div>
               </div>
-              <div className="product-list grid mt-4 me-xl-2 me-lg-2 me-md-2 me-3">
-                <div className="product-items" style={{ minHeight: "1200px" }}>
+              <div className="product-list grid me-xl-2 me-lg-2 me-md-2 me-3">
+                <div className="product-items">
                   <div className="row">
                     {currentProducts.length > 0 ? (
                       currentProducts.map((product) => (
                         <div
-                          className="col-xl-3 col-lg-3 col-md-4 col-6 my-xl-3 my-lg-3 my-md-2 my-2"
+                          className="col-xl-3 col-lg-3 col-md-4 col-6 my-lg-3 my-2"
                           key={product.id}
                         >
                           <ProductItem
@@ -392,7 +396,7 @@ const Product = ({
                   </div>
                 </div>
                 {/* phân trang */}
-                <div className="pagination d-flex justify-content-center my-xl-4">
+                <div className="pagination d-flex justify-content-center my-4">
                   {/* Nút mũi tên trái */}
                   <button
                     onClick={() => handlePageChange(currentPage - 1)}
@@ -434,19 +438,19 @@ const Product = ({
                   ? `d-block position-fixed position-md-static top-0 end-0 bg-white overflow-auto p-3`
                   : "d-none"
               }  
-              content-product-right pe-0 d-md-block h-100`}
-              style={{ zIndex: "3000" }}
+              content-product-right pe-0 d-lg-block h-100`}
+              style={{ zIndex: showFilter ? "3000" : "1000" }}
             >
               <div className="d-flex justify-content-between align-items-center py-2 ms-2 me-3 border-bottom">
                 <h3 className="mb-0 fw-bold">{t("product.filter.title")}</h3>
                 <button
-                  className="btn-close d-md-none"
+                  className="btn-close d-lg-none"
                   onClick={() => setShowFilter(false)}
                 ></button>
               </div>
               <facet-drawer data-collection="0">
-                <div className="collection-filter bg-white pb-xl-5 pb-lg-5 pb-md-5 pb-sm-5 pb-5  rounded-3">
-                  <div className="facet-inner overflow-auto h-100 px-xl-2 px-lg-3 px-md-3 px-sm-2 px-3">
+                <div className="collection-filter bg-white pb-4 mb-lg-4 rounded-3">
+                  <div className="facet-inner overflow-auto h-100 px-xl-2 px-3">
                     <form className="facet-form">
                       <div className="filter-container d-flex flex-column rounded-sm ps-xl-4 pt-xl-4 ps-lg-3 pt-lg-3 ps-md-2 ps-2 pt-md-2 ps-sm-1 pt-sm-1 ps-1 pt-1">
                         {/* Giá */}

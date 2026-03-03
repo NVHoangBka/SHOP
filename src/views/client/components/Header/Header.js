@@ -269,7 +269,7 @@ const Header = ({
                   {`Xin chào, ${currentUser.firstName} ${currentUser.lastName}`}
                 </div>
               ) : (
-                <div className="lh-sm ">
+                <div className="lh-sm">
                   <p className="mb-xl-1 mb-1 fs-6">{t("account.title")}</p>
                   <span className="fw-bold fs-6 ">
                     {t("system.login.title")}
