@@ -35,6 +35,7 @@ class Product {
     this.colors = data.colors || [];
 
     this.tags = data.tags || [];
+    this.types = data.types || [];
     this.titles = data.titles || [];
     this.subTitles = data.subTitles || [];
 

@@ -72,7 +72,7 @@ module.exports = {
       totalStock: 192,
       totalSold: 0,
       viewCount: 0,
-      flashSale: true,
+      flashSale: false,
       highlightSections: [],
       attributes: [],
       reviews: [],
@@ -83,6 +83,7 @@ module.exports = {
         $date: "2026-01-17T05:56:30.526Z",
       },
       __v: 0,
+      types: [],
     },
     {
       _id: {
@@ -187,7 +188,7 @@ module.exports = {
       totalStock: 184,
       totalSold: 0,
       viewCount: 0,
-      flashSale: true,
+      flashSale: false,
       highlightSections: [],
       attributes: [],
       reviews: [],
@@ -198,6 +199,7 @@ module.exports = {
         $date: "2026-01-17T05:56:30.673Z",
       },
       __v: 0,
+      types: [],
     },
     {
       _id: {
@@ -268,7 +270,7 @@ module.exports = {
       totalStock: 267,
       totalSold: 0,
       viewCount: 0,
-      flashSale: true,
+      flashSale: false,
       highlightSections: [],
       attributes: [],
       reviews: [],
@@ -279,6 +281,7 @@ module.exports = {
         $date: "2026-01-17T05:56:30.743Z",
       },
       __v: 0,
+      types: [],
     },
     {
       _id: {
@@ -332,7 +335,7 @@ module.exports = {
       totalStock: 0,
       totalSold: 0,
       viewCount: 2,
-      flashSale: true,
+      flashSale: false,
       highlightSections: [
         {
           title: "",
@@ -350,6 +353,7 @@ module.exports = {
         $date: "2026-01-18T04:49:17.442Z",
       },
       __v: 0,
+      types: [],
     },
     {
       _id: {
@@ -420,6 +424,7 @@ module.exports = {
         $date: "2026-01-18T04:48:45.930Z",
       },
       __v: 0,
+      types: [],
     },
     {
       _id: {
@@ -489,6 +494,7 @@ module.exports = {
         $date: "2026-01-18T04:08:36.645Z",
       },
       __v: 0,
+      types: [],
     },
     {
       _id: {
@@ -559,6 +565,7 @@ module.exports = {
         $date: "2026-01-18T04:49:06.647Z",
       },
       __v: 0,
+      types: [],
     },
     {
       _id: {
@@ -630,6 +637,7 @@ module.exports = {
         $date: "2026-01-18T04:08:24.242Z",
       },
       __v: 0,
+      types: [],
     },
     {
       _id: {
@@ -698,6 +706,7 @@ module.exports = {
         $date: "2026-01-18T04:08:17.705Z",
       },
       __v: 0,
+      types: [],
     },
     {
       _id: {
@@ -766,6 +775,7 @@ module.exports = {
         en: "",
         cz: "",
       },
+      types: [],
     },
     {
       _id: {
@@ -824,7 +834,7 @@ module.exports = {
         $date: "2026-01-17T05:56:31.286Z",
       },
       updatedAt: {
-        $date: "2026-01-18T03:58:51.953Z",
+        $date: "2026-03-04T06:15:08.740Z",
       },
       __v: 0,
       description: {
@@ -832,6 +842,11 @@ module.exports = {
         en: "",
         cz: "",
       },
+      types: [
+        {
+          id: "69a7ac36e12456d90d95e436",
+        },
+      ],
     },
     {
       _id: {
@@ -890,7 +905,7 @@ module.exports = {
         $date: "2026-01-17T05:56:31.356Z",
       },
       updatedAt: {
-        $date: "2026-01-18T03:58:44.440Z",
+        $date: "2026-03-04T06:15:02.679Z",
       },
       __v: 0,
       description: {
@@ -898,11 +913,15 @@ module.exports = {
         en: "",
         cz: "",
       },
+      types: [
+        {
+          id: "69a7ac36e12456d90d95e436",
+        },
+      ],
     },
     {
-      _id: {
-        id: "696b248f13abae3d008e2232",
-      },
+      id: "696b248f13abae3d008e2232",
+
       name: {
         vi: "Tôm lột đông lạnh 200g",
         en: "Frozen Shelled Prawn 200g",
@@ -960,7 +979,7 @@ module.exports = {
         $date: "2026-01-17T05:56:31.423Z",
       },
       updatedAt: {
-        $date: "2026-01-18T03:58:36.663Z",
+        $date: "2026-03-04T06:14:53.378Z",
       },
       __v: 0,
       description: {
@@ -968,11 +987,18 @@ module.exports = {
         en: "",
         cz: "",
       },
+      types: [
+        {
+          id: "69a7ac36e12456d90d95e43a",
+        },
+        {
+          id: "69a7ac36e12456d90d95e43c",
+        },
+      ],
     },
     {
-      _id: {
-        id: "696b248f13abae3d008e2234",
-      },
+      id: "696b248f13abae3d008e2234",
+
       name: {
         vi: "Xương bò tơ (500g)",
         en: "Veal Bone (500g)",
@@ -1026,7 +1052,7 @@ module.exports = {
         $date: "2026-01-17T05:56:31.492Z",
       },
       updatedAt: {
-        $date: "2026-01-18T03:58:28.656Z",
+        $date: "2026-03-04T06:14:41.058Z",
       },
       __v: 0,
       description: {
@@ -1034,11 +1060,18 @@ module.exports = {
         en: "",
         cz: "",
       },
+      types: [
+        {
+          id: "69a7ac36e12456d90d95e43c",
+        },
+        {
+          id: "69a7ac36e12456d90d95e43a",
+        },
+      ],
     },
     {
-      _id: {
-        id: "696b248f13abae3d008e2236",
-      },
+      id: "696b248f13abae3d008e2236",
+
       name: {
         vi: "Sổ Planner Lên Kế Hoạch Hằng Ngày",
         en: "Daily Planner Notebook",
@@ -1097,7 +1130,7 @@ module.exports = {
         $date: "2026-01-17T05:56:31.560Z",
       },
       updatedAt: {
-        $date: "2026-01-18T03:58:21.186Z",
+        $date: "2026-03-04T06:14:27.459Z",
       },
       __v: 0,
       description: {
@@ -1105,11 +1138,18 @@ module.exports = {
         en: "",
         cz: "",
       },
+      types: [
+        {
+          id: "69a7ac36e12456d90d95e430",
+        },
+        {
+          id: "69a7ac36e12456d90d95e432",
+        },
+      ],
     },
     {
-      _id: {
-        id: "696b248f13abae3d008e2238",
-      },
+      id: "696b248f13abae3d008e2238",
+
       name: {
         vi: "Giấy ghi chú trong suốt đánh dấu trang sách",
         en: "Transparent Sticky Notes for Bookmarking",
@@ -1168,7 +1208,7 @@ module.exports = {
         $date: "2026-01-17T05:56:31.626Z",
       },
       updatedAt: {
-        $date: "2026-01-18T03:58:12.447Z",
+        $date: "2026-03-04T06:14:15.447Z",
       },
       __v: 0,
       description: {
@@ -1176,11 +1216,18 @@ module.exports = {
         en: "",
         cz: "",
       },
+      types: [
+        {
+          id: "69a7ac36e12456d90d95e430",
+        },
+        {
+          id: "69a7ac36e12456d90d95e432",
+        },
+      ],
     },
     {
-      _id: {
-        id: "696b248f13abae3d008e223a",
-      },
+      id: "696b248f13abae3d008e223a",
+
       name: {
         vi: "Túi đựng bút trong suốt phong cách",
         en: "Stylish Transparent Pen Case",
@@ -1239,7 +1286,7 @@ module.exports = {
         $date: "2026-01-17T05:56:31.693Z",
       },
       updatedAt: {
-        $date: "2026-01-18T03:58:04.511Z",
+        $date: "2026-03-04T06:14:05.850Z",
       },
       __v: 0,
       description: {
@@ -1247,11 +1294,18 @@ module.exports = {
         en: "",
         cz: "",
       },
+      types: [
+        {
+          id: "69a7ac36e12456d90d95e430",
+        },
+        {
+          id: "69a7ac36e12456d90d95e432",
+        },
+      ],
     },
     {
-      _id: {
-        id: "696b248f13abae3d008e223c",
-      },
+      id: "696b248f13abae3d008e223c",
+
       name: {
         vi: "Bút Highlight 18 Màu Sắc",
         en: "18 Colors Highlighter Pen",
@@ -1310,7 +1364,7 @@ module.exports = {
         $date: "2026-01-17T05:56:31.761Z",
       },
       updatedAt: {
-        $date: "2026-01-18T03:57:56.894Z",
+        $date: "2026-03-04T06:13:51.658Z",
       },
       __v: 0,
       description: {
@@ -1318,11 +1372,18 @@ module.exports = {
         en: "",
         cz: "",
       },
+      types: [
+        {
+          id: "69a7ac36e12456d90d95e430",
+        },
+        {
+          id: "69a7ac36e12456d90d95e432",
+        },
+      ],
     },
     {
-      _id: {
-        id: "696b248f13abae3d008e223e",
-      },
+      id: "696b248f13abae3d008e223e",
+
       name: {
         vi: "Bút Bi Gel Ngòi 0,5mm Viết Trơn",
         en: "0.5mm Gel Pen Smooth Writing",
@@ -1351,10 +1412,10 @@ module.exports = {
           sku: "",
           sold: 0,
           createdAt: {
-            $date: "2026-01-18T03:54:15.369Z",
+            $date: "2026-03-04T06:13:43.062Z",
           },
           updatedAt: {
-            $date: "2026-01-18T03:54:15.369Z",
+            $date: "2026-03-04T06:13:43.062Z",
           },
         },
         {
@@ -1366,10 +1427,10 @@ module.exports = {
           sku: "",
           sold: 0,
           createdAt: {
-            $date: "2026-01-18T03:54:15.369Z",
+            $date: "2026-03-04T06:13:43.062Z",
           },
           updatedAt: {
-            $date: "2026-01-18T03:54:15.369Z",
+            $date: "2026-03-04T06:13:43.062Z",
           },
         },
         {
@@ -1381,10 +1442,10 @@ module.exports = {
           sku: "",
           sold: 0,
           createdAt: {
-            $date: "2026-01-18T03:54:15.369Z",
+            $date: "2026-03-04T06:13:43.062Z",
           },
           updatedAt: {
-            $date: "2026-01-18T03:54:15.369Z",
+            $date: "2026-03-04T06:13:43.062Z",
           },
         },
       ],
@@ -1430,15 +1491,22 @@ module.exports = {
         $date: "2026-01-17T05:56:31.833Z",
       },
       updatedAt: {
-        $date: "2026-01-18T03:54:15.369Z",
+        $date: "2026-03-04T06:13:43.062Z",
       },
       __v: 0,
       price: 6000,
+      types: [
+        {
+          id: "69a7ac36e12456d90d95e432",
+        },
+        {
+          id: "69a7ac36e12456d90d95e430",
+        },
+      ],
     },
     {
-      _id: {
-        id: "696b248f13abae3d008e2240",
-      },
+      id: "696b248f13abae3d008e2240",
+
       name: {
         vi: "Băng keo hai mặt dài 6m",
         en: "6m Double-Sided Tape",
@@ -1497,7 +1565,7 @@ module.exports = {
         $date: "2026-01-17T05:56:31.902Z",
       },
       updatedAt: {
-        $date: "2026-01-18T03:49:32.959Z",
+        $date: "2026-03-04T06:13:34.752Z",
       },
       __v: 0,
       description: {
@@ -1505,6 +1573,14 @@ module.exports = {
         en: "",
         cz: "",
       },
+      types: [
+        {
+          id: "69a7ac36e12456d90d95e430",
+        },
+        {
+          id: "69a7ac36e12456d90d95e432",
+        },
+      ],
     },
   ],
 };
