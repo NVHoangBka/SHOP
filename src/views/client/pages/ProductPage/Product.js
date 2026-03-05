@@ -27,6 +27,7 @@ const Product = ({
     price: null,
     brand: [],
     type: [],
+    tag: [],
     color: [],
   });
 
@@ -723,7 +724,7 @@ const Product = ({
                                   data-group="PRODUCT_TYPE"
                                   data-field="type.filter_key"
                                   data-value="Làm thơm"
-                                  value="Làm thơm"
+                                  value="lam-thom"
                                   data-operator="OR"
                                   name="type"
                                   onChange={onTypeChange}
@@ -743,7 +744,7 @@ const Product = ({
                                   data-group="PRODUCT_TYPE"
                                   data-field="type.filter_key"
                                   data-value="Chất tẩy rửa"
-                                  value="Chất tẩy rửa"
+                                  value="chat-tay-rua"
                                   data-operator="OR"
                                   name="type"
                                   onChange={onTypeChange}
@@ -763,7 +764,7 @@ const Product = ({
                                   data-group="PRODUCT_TYPE"
                                   data-field="type.filter_key"
                                   data-value="Đồ dùng học tập"
-                                  value="Đồ dùng học tập"
+                                  value="do-dung-hoc-tap"
                                   data-operator="OR"
                                   name="type"
                                   onChange={onTypeChange}
@@ -783,7 +784,7 @@ const Product = ({
                                   data-group="PRODUCT_TYPE"
                                   data-field="type.filter_key"
                                   data-value="Văn phòng"
-                                  value="Văn phòng"
+                                  value="van-phong-pham"
                                   data-operator="OR"
                                   name="type"
                                   onChange={onTypeChange}
@@ -792,7 +793,7 @@ const Product = ({
                                   className="custom-checkbox ms-2 fw-100"
                                   htmlFor="filter-type-van-phong"
                                 >
-                                  Văn phòng
+                                  Văn phòng phẩm
                                 </label>
                               </li>
                               <li className="filter-item link filter-item--check-box mb-1 d-flex align-items-center">
@@ -803,7 +804,7 @@ const Product = ({
                                   data-group="PRODUCT_TYPE"
                                   data-field="type.filter_key"
                                   data-value="Nhập khẩu"
-                                  value="Nhập khẩu"
+                                  value="nhap-khau"
                                   data-operator="OR"
                                   name="type"
                                   onChange={onTypeChange}
@@ -823,7 +824,7 @@ const Product = ({
                                   data-group="PRODUCT_TYPE"
                                   data-field="type.filter_key"
                                   data-value="Nông sản Việt"
-                                  value="Nông sản Việt"
+                                  value="nong-san-viet"
                                   data-operator="OR"
                                   name="type"
                                   onChange={onTypeChange}
@@ -843,7 +844,7 @@ const Product = ({
                                   data-group="PRODUCT_TYPE"
                                   data-field="type.filter_key"
                                   data-value="Nhiệt đới"
-                                  value="Nhiệt đới"
+                                  value="nhiet-doi"
                                   data-operator="OR"
                                   name="type"
                                   onChange={onTypeChange}
@@ -863,7 +864,7 @@ const Product = ({
                                   data-group="PRODUCT_TYPE"
                                   data-field="type.filter_key"
                                   data-value="Thực phẩm tươi sống"
-                                  value="Thực phẩm tươi sống"
+                                  value="thuc-pham-tuoi-song"
                                   data-operator="OR"
                                   name="type"
                                   onChange={onTypeChange}
@@ -883,7 +884,7 @@ const Product = ({
                                   data-group="PRODUCT_TYPE"
                                   data-field="type.filter_key"
                                   data-value="Thực phẩm"
-                                  value="Thực phẩm"
+                                  value="thuc-pham"
                                   data-operator="OR"
                                   name="type"
                                   onChange={onTypeChange}
@@ -903,7 +904,7 @@ const Product = ({
                                   data-group="PRODUCT_TYPE"
                                   data-field="type.filter_key"
                                   data-value="Khác"
-                                  value="Khác"
+                                  value="khac"
                                   data-operator="OR"
                                   name="type"
                                   onChange={onTypeChange}
