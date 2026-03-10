@@ -63,8 +63,8 @@ const ProductDetail = ({ addToCart, productController }) => {
         : product.name,
       // Giá thực tế
       finalPrice: selectedVariant
-        ? selectedVariant.discountPrice || selectedVariant.price
-        : product.discountPrice || product.price,
+        ? selectedVariant?.discountPrice || selectedVariant?.price
+        : product?.discountPrice || product?.price,
       // Ảnh trong giỏ
       cartImage: mainImage,
     };
@@ -83,8 +83,8 @@ const ProductDetail = ({ addToCart, productController }) => {
         ? `${product.name} - ${selectedVariant.value}`
         : product.name,
       finalPrice: selectedVariant
-        ? selectedVariant.discountPrice || selectedVariant.price
-        : product.discountPrice || product.price,
+        ? selectedVariant?.discountPrice || selectedVariant?.price
+        : product?.discountPrice || product?.price,
       cartImage: mainImage,
     };
     // TRUYỀN RIÊNG DANH SÁCH CHỈ CÓ 1 MÓN NÀY → CHECKOUT SẼ ƯU TIÊN HIỂN THỊ
@@ -132,10 +132,10 @@ const ProductDetail = ({ addToCart, productController }) => {
   const currentPrice =
     selectedVariant?.discountPrice ||
     selectedVariant?.price ||
-    product.discountPrice ||
-    product.price;
+    product?.discountPrice ||
+    product?.price;
 
-  const originalPrice = selectedVariant?.price || product.price;
+  const originalPrice = selectedVariant?.price || product?.price;
   const hasDiscount = currentPrice < originalPrice;
   const discountPercent = hasDiscount
     ? Math.round(100 - (currentPrice / originalPrice) * 100)
@@ -407,11 +407,11 @@ const ProductDetail = ({ addToCart, productController }) => {
                                 }`}
                               >
                                 {v.value}
-                                {v.discountPrice && (
+                                {v?.discountPrice && (
                                   <small className="ms-1">
                                     (−
                                     {Math.round(
-                                      100 - (v.discountPrice / v.price) * 100,
+                                      100 - (v?.discountPrice / v?.price) * 100,
                                     )}
                                     %)
                                   </small>
